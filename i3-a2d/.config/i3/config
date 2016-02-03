@@ -1,0 +1,206 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+set $mod2 Shift
+set $mod3 Control
+
+set $left  HDMI-0
+set $right VGA-0
+
+set $w1 1
+set $w2 2
+set $w3 3
+set $w4 4
+set $w5 5
+set $w6 6
+set $w7 7
+set $w8 8
+set $w9 9
+set $w0 10
+
+workspace 1  output $left
+workspace 2  output $left
+workspace 3  output $left
+workspace 4  output $left
+workspace 5  output $left
+workspace 6  output $right
+workspace 7  output $right
+workspace 8  output $right
+workspace 9  output $right
+workspace 10 output $right
+
+new_window 1pixel
+workspace_layout default
+workspace_auto_back_and_forth yes
+focus_follows_mouse no
+floating_modifier $mod
+font pango: Inconsolata 10
+
+# Layout
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+s layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+x layout toggle split
+bindsym $mod+f fullscreen
+bindsym $mod+space floating toggle
+
+# Focus
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+bindsym $mod+q focus parent
+bindsym $mod+a focus child
+
+# Move window
+bindsym $mod+$mod2+Left  move left
+bindsym $mod+$mod2+Down  move down
+bindsym $mod+$mod2+Up    move up
+bindsym $mod+$mod2+Right move right
+
+# Switch to workspace
+bindsym $mod+1 workspace $w1
+bindsym $mod+2 workspace $w2
+bindsym $mod+3 workspace $w3
+bindsym $mod+4 workspace $w4
+bindsym $mod+5 workspace $w5
+bindsym $mod+6 workspace $w6
+bindsym $mod+7 workspace $w7
+bindsym $mod+8 workspace $w8
+bindsym $mod+9 workspace $w9
+bindsym $mod+0 workspace $w0
+
+bindsym $mod+Prior workspace prev
+bindsym $mod+Next workspace next
+
+# Move focused container to workspace
+bindsym $mod+$mod2+1 move container to workspace $w1
+bindsym $mod+$mod2+2 move container to workspace $w2
+bindsym $mod+$mod2+3 move container to workspace $w3
+bindsym $mod+$mod2+4 move container to workspace $w4
+bindsym $mod+$mod2+5 move container to workspace $w5
+bindsym $mod+$mod2+6 move container to workspace $w6
+bindsym $mod+$mod2+7 move container to workspace $w7
+bindsym $mod+$mod2+8 move container to workspace $w8
+bindsym $mod+$mod2+9 move container to workspace $w9
+bindsym $mod+$mod2+0 move container to workspace $w0
+
+bindsym $mod+$mod2+Prior workspace prev
+bindsym $mod+$mod2+Next workspace next
+
+# Rename workspace
+bindsym $mod+$mod3+1 rename workspace to $w1
+bindsym $mod+$mod3+2 rename workspace to $w2
+bindsym $mod+$mod3+3 rename workspace to $w3
+bindsym $mod+$mod3+4 rename workspace to $w4
+bindsym $mod+$mod3+5 rename workspace to $w5
+bindsym $mod+$mod3+6 rename workspace to $w6
+bindsym $mod+$mod3+7 rename workspace to $w7
+bindsym $mod+$mod3+8 rename workspace to $w8
+bindsym $mod+$mod3+9 rename workspace to $w9
+bindsym $mod+$mod3+0 rename workspace to $w0
+
+bindsym $mod+$mod3+Prior workspace prev
+bindsym $mod+$mod3+Next workspace next
+
+bindsym $mod+c move workspace to output right
+
+# Kill
+bindsym $mod+w kill
+bindsym $mod+F4 kill
+bindsym Mod1+F4 kill
+
+# Applications
+bindsym $mod+d            exec rofi -show run
+bindsym $mod+Return       exec termite
+bindsym Mod4+e            exec thunar
+bindsym $mod+n            exec firefox -profile .mozilla/firefox/aumgn
+bindsym $mod+Shift+n      exec firefox -profile .mozilla/firefox/aumgn --private-window
+bindsym $mod+Mod1+n       exec chromium
+bindsym $mod+Mod1+Shift+n exec chromium --incognito
+
+# Audio
+bindsym XF86AudioMute        exec ctl speakers toggle
+bindsym $mod+F1              exec ctl speakers toggle
+bindsym XF86AudioLowerVolume exec ctl speakers down
+bindsym $mod+F2              exec ctl speakers down
+bindsym XF86AudioRaiseVolume exec ctl speakers up
+bindsym $mod+F3              exec ctl speakers up
+
+# Cmus
+bindsym $mod+F5       exec ctl music toggle
+bindsym XF86AudioPlay exec ctl music toggle
+bindsym $mod+F6       exec ctl music stop
+bindsym XF86AudioStop exec ctl music stop
+bindsym $mod+F7       exec ctl music prev
+bindsym XF86AudioPrev exec ctl music prev
+bindsym $mod+F8       exec ctl music next
+bindsym XF86AudioNext exec ctl music next
+
+bindsym $mod+l                  exec ctl lock
+bindsym $mod+$mod2+$mod3+Delete exec ctl reboot
+bindsym $mod+$mod2+$mod3+End    exec ctl shutdown
+
+bindsym $mod+$mod2+c            reload
+bindsym $mod+$mod2+r            restart
+bindsym $mod+$mod2+$mod3+Home   exit
+
+# Resize mode
+mode "Resize" {
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up   resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "Resize"
+
+# Bars
+bar {
+      font pango: Ubuntu, FontAwesome 11
+      tray_output primary
+      output $left
+      position top
+      colors {
+            background #333333
+            statusline #CCCCCC
+
+            focused_workspace #333333 #999999 #000000
+            active_workspace #333333 #444444 #aaaaaa
+            inactive_workspace #333333 #222222 #aaaaaa
+            urgent_workspace #333333 #aaaaaa #000000
+      }
+      status_command i3status -c /home/aumgn/.config/i3/status_config_left
+      separator_symbol "   "
+}
+
+bar {
+      font pango: Ubuntu, FontAwesome 11
+      tray_output primary
+      output $right
+      position top
+      colors {
+            background #333333
+            statusline #CCCCCC
+
+            focused_workspace #333333 #999999 #000000
+            active_workspace #333333 #444444 #aaaaaa
+            inactive_workspace #333333 #222222 #aaaaaa
+            urgent_workspace #333333 #aaaaaa #000000
+      }
+      status_command i3status -c /home/aumgn/.config/i3/status_config_right
+      separator_symbol "   "
+}
+
+client.focused #999999 #999999 #000000
+client.focused_inactive #444444 #444444 #aaaaaa
+client.unfocused #222222 #222222 #aaaaaa
+client.urgent #aaaaaa #aaaaaa #000000
+
+exec --no-startup-id ~/.fehbg

@@ -1,0 +1,46 @@
+[user]
+   email = aumgn@free.fr
+   name = aumgn
+
+[core]
+   editor = vim
+   excludesfile = ~/.gitignore_global
+   autocrlf = input
+   safecrlf = false
+   pager = less
+
+[alias]
+   ii = !git init && git commit --allow-empty -m 'Initial Commit'
+
+   st = status
+   ss = status -sb
+   df = diff
+   dc = diff --cached
+
+   aa = !git add -u && git add .
+   ap = add -p
+   ci = commit
+   ca = !git aa && git ci
+   cam = !git aa && git ca -m
+
+   amd = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
+   aamd = !git aa && git amd
+   abort = reset --hard HEAD
+   derp = !git cam "Derp"
+
+   co  = checkout
+   br  = branch
+   ri = rebase --interactive
+   ft  = fetch origin
+   ps = push
+
+   lg = log --pretty=format:'%C(yellow)%h%Creset - %Cgreen%ce%Creset : %s' --date=relative
+   ln = !git lg -n
+
+[color]
+   branch = auto
+   diff = auto
+   interactive = auto
+   status = auto
+[push]
+	default = simple

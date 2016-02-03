@@ -1,0 +1,26 @@
+export LEFT_SCREEN=HDMI-0
+export RIGHT_SCREEN=VGA-0
+
+ctl lock
+
+export SONG_FIFO=/tmp/song-fifo
+
+setxkbmap -layout gb -variant extd -option ctrl:nocaps
+numlockx on &
+
+xrandr --output $RIGHT_SCREEN --primary
+xrandr --output $LEFT_SCREEN -0 --left-of $RIGHT_SCREEN
+
+eval $(ssh-agent)
+export SSH_ASKPASS=/usr/lib/ssh/x11-ssh-askpass
+keychain
+[ -f ~/.keychain/$HOSTNAME-sh ] && . ~/.keychain/$HOSTNAME-sh 2>/dev/null
+[ -f ~/.keychain/$HOSTNAME-sh-gpg ] && . ~/.keychain/$HOSTNAME-sh-gpg 2>/dev/null
+
+xrdb -load ~/.Xresources
+pulseaudio --start
+synergys --log ~/.synergy/log --debug ERROR
+mkfifo "$SONG_FIFO"
+
+compton -CGb
+exec i3

@@ -1,0 +1,21 @@
+#! /bin/bash
+
+if [[ ! -p $SONG_FIFO ]]; then
+    exit
+fi
+
+while [ "$1" '!=' "" ]
+do
+    case "$1" in
+        title)
+            title="$2"
+        ;;
+        artist)
+            artist="$2"
+        ;;
+    esac
+    shift
+    shift
+done
+
+echo "$artist|$title" >> /tmp/song-fifo

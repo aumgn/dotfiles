@@ -1,0 +1,23 @@
+# UTF-8 : ß
+
+general {
+        colors = true
+        interval = 1
+}
+
+order += "cpu_usage"
+order += "cpu_temperature 0"
+order += "tztime datetime"
+
+cpu_usage {
+        format = " %usage"
+}
+
+cpu_temperature 0 {
+        format = " %degrees°C"
+        path = "/sys/class/hwmon/hwmon0/temp1_input"
+}
+
+tztime datetime {
+        format = " %d %b   %H:%M  "
+}
