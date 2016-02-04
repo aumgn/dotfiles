@@ -1,0 +1,2 @@
+mkdir -p ~/Mount/$1
+sshfs -o idmap=user -o workaround=rename $(basename $1): ~/Mount/$1
