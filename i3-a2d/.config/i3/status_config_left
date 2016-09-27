@@ -6,7 +6,6 @@ general {
 }
 
 order += "disk /"
-order += "disk /datas"
 order += "ethernet _first_"
 order += "volume master"
 
@@ -23,8 +22,4 @@ ethernet _first_ {
 
 disk / {
         format = " / %free"
-}
-
-disk /datas {
-        format = " /datas %free"
 }

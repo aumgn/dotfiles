@@ -1,3 +1,2 @@
-#! /bin/sh
-
-feh --no-fehbg --randomize --bg-fill ~/Pictures/Wallpapers/*
+#!/bin/sh
+feh --bg-tile '/home/aumgn/.wallpaper3.png' 
