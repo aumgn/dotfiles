@@ -1,7 +1,13 @@
-ctl lock
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
+# ctl lock
 
 setxkbmap -layout fr -option caps:super
 numlockx on &
+
+ibus-daemon -rd
 
 xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
 xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2

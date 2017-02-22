@@ -116,7 +116,7 @@ bindsym $mod+F2              exec ctl speakers down
 bindsym XF86AudioRaiseVolume exec ctl speakers up
 bindsym $mod+F3              exec ctl speakers up
 
-# Cmus
+# Music
 bindsym $mod+F5       exec ctl music toggle
 bindsym XF86AudioPlay exec ctl music toggle
 bindsym $mod+F6       exec ctl music stop
@@ -125,6 +125,8 @@ bindsym $mod+F7       exec ctl music prev
 bindsym XF86AudioPrev exec ctl music prev
 bindsym $mod+F8       exec ctl music next
 bindsym XF86AudioNext exec ctl music next
+
+bindsym XF86TouchpadToggle exec touchpad-toggle
 
 bindsym $mod+l                  exec ctl lock
 bindsym $mod+$mod2+$mod3+Delete exec ctl reboot
