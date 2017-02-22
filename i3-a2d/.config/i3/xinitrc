@@ -1,7 +1,7 @@
 export LEFT_SCREEN=DVI-D-0
 export RIGHT_SCREEN=HDMI-0
 
-ctl lock &
+# ctl lock &
 
 setxkbmap -layout gb -variant extd -option caps:super
 numlockx on &
