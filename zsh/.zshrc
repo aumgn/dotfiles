@@ -2,6 +2,12 @@
 # Zshrc #
 #########
 
+if [[ $TERM == "dumb" ]]; then
+       unsetopt zle
+       PS1='$ '
+       return
+fi
+
 # Keybindings
 bindkey -e
 bindkey \^U backward-kill-line
