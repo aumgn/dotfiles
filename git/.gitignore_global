@@ -118,3 +118,8 @@ dependency-reduced-pom.xml
 .yardoc
 _yardoc
 doc/
+
+# -------
+# Visual Studio Code
+# -------
+.vscode
