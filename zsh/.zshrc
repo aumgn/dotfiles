@@ -63,4 +63,4 @@ prompt_aumgn_setup
 source ~/.k/k.sh
 alias l="k -Ah --no-vcs"
 alias ll="k -h --no-vcs"
-
+alias ec="emacs -nw"
