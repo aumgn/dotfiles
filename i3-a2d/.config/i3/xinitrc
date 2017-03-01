@@ -1,16 +1,21 @@
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
 export LEFT_SCREEN=DVI-D-0
 export RIGHT_SCREEN=HDMI-0
 
 # ctl lock &
 
-setxkbmap -layout gb -variant extd -option caps:super
+setxkbmap -layout gb -variant extd -option caps:escape
 numlockx on &
+
+ibus-daemon -rd
 
 xrandr --output $LEFT_SCREEN --primary
 xrandr --output $LEFT_SCREEN --left-of $RIGHT_SCREEN
 
 xrdb -load ~/.Xresources
 pulseaudio --start
-# synergys --log ~/.synergy/log --debug ERROR
 
 exec i3
