@@ -1,0 +1,8 @@
+setxkbmap -layout fr -option caps:super
+numlockx on &
+
+eval $(ssh-agent)
+
+xrdb -load ~/.Xresources
+
+exec i3

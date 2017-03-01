@@ -1,0 +1,28 @@
+# UTF-8 : ß
+
+general {
+        colors = true
+        interval = 1
+}
+
+order += "cpu_usage"
+order += "tztime datetime"
+order += "disk /"
+order += "ethernet _first_"
+
+ethernet _first_ {
+        format_up = " %ip"
+        format_down = ""
+}
+
+disk / {
+        format = " / %free"
+}
+
+cpu_usage {
+        format = " %usage"
+}
+
+tztime datetime {
+        format = " %d %b   %H:%M  "
+}
