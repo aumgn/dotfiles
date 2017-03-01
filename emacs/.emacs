@@ -31,10 +31,11 @@
 (setq package-archive-enable-alist '(("melpa" deft magit)))
 
 (defvar aumgn/packages '(
-	god-mode
-	multiple-cursors
-	base16-theme
-	) "Default packages")
+			 god-mode
+			 magit
+			 base16-theme
+			 multiple-cursors
+			 ) "Default packages")
 
 (defun aumgn/packages-installed-p ()
 	(loop for pkg in aumgn/packages
