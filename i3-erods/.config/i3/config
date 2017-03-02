@@ -102,6 +102,7 @@ bindsym Mod1+F4 kill
 # Applications
 bindsym $mod+d            exec rofi -show run
 bindsym $mod+Return       exec termite
+bindsym $mod+BackSpace    exec emacs
 bindsym Mod4+e            exec thunar
 bindsym $mod+n            exec firefox -profile .mozilla/firefox/aumgn
 bindsym $mod+Shift+n      exec firefox -profile .mozilla/firefox/aumgn --private-window
