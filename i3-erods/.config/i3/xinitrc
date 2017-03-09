@@ -1,7 +1,5 @@
-setxkbmap -layout fr -option caps:super
+setxkbmap -layout fr -option caps:escape
 numlockx on &
-
-eval $(ssh-agent)
 
 xrdb -load ~/.Xresources
 
