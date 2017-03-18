@@ -6,8 +6,8 @@ set $mod Mod4
 set $mod2 Shift
 set $mod3 Control
 
-set $left DVI-D-0
-set $right HDMI-0
+set $left HDMI-0
+set $right DVI-D-0
 
 set $w1 1
 set $w2 2
@@ -39,7 +39,7 @@ floating_modifier $mod
 font pango: Inconsolata 10
 
 # Layout
-bindsym $mod+h split h
+bindsym $mod+b split h
 bindsym $mod+v split v
 bindsym $mod+s layout stacking
 bindsym $mod+z layout tabbed
@@ -48,18 +48,20 @@ bindsym $mod+f fullscreen
 bindsym $mod+space floating toggle
 
 # Focus
-bindsym $mod+Left  focus left
-bindsym $mod+Down  focus down
-bindsym $mod+Up    focus up
-bindsym $mod+Right focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+
 bindsym $mod+q focus parent
 bindsym $mod+a focus child
 
 # Move window
-bindsym $mod+$mod2+Left  move left
-bindsym $mod+$mod2+Down  move down
-bindsym $mod+$mod2+Up    move up
-bindsym $mod+$mod2+Right move right
+bindsym $mod+$mod2+h move left
+bindsym $mod+$mod2+j move down
+bindsym $mod+$mod2+k move up
+bindsym $mod+$mod2+l move right
 
 # Switch to workspace
 bindsym $mod+1 workspace $w1
@@ -116,7 +118,8 @@ bindsym Mod1+F4 kill
 # Applications
 bindsym $mod+d            exec rofi -show run
 bindsym $mod+Return       exec termite
-bindsym $mod+BackSpace    exec emacsclient -a '' -c
+bindsym $mod+BackSpace    exec eg
+bindsym $mod+Menu         exec eg
 bindsym Mod4+e            exec thunar
 bindsym $mod+n            exec firefox -profile .mozilla/firefox/aumgn
 bindsym $mod+Shift+n      exec firefox -profile .mozilla/firefox/aumgn --private-window
@@ -141,7 +144,7 @@ bindsym XF86AudioPrev exec ctl music prev
 bindsym $mod+F8       exec ctl music next
 bindsym XF86AudioNext exec ctl music next
 
-bindsym $mod+l                  exec ctl lock
+bindsym $mod+p                  exec ctl lock
 bindsym $mod+$mod2+$mod3+Delete exec ctl reboot
 bindsym $mod+$mod2+$mod3+End    exec ctl shutdown
 
@@ -151,10 +154,10 @@ bindsym $mod+$mod2+$mod3+Home   exit
 
 # Resize mode
 mode "Resize" {
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up   resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width  10 px or 10 ppt
+        bindsym j resize grow   height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow   width  10 px or 10 ppt
 
         bindsym Return mode "default"
         bindsym Escape mode "default"

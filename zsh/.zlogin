@@ -1,7 +1,8 @@
 export PATH=$HOME/.local/bin:/home/aumgn/.cargo/bin:$PATH
 export XDG_CONFIG_HOME="$HOME/.config"
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
-export EDITOR="emacsclient -a '' -c"
+export EDITOR="et"
+export VISUAL="eg"
 
 [[ -z $DISPLAY ]] \
 	&& [[ $XDG_VTNR -eq 1 ]] \
