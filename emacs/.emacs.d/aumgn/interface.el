@@ -1,3 +1,16 @@
+(use-package dim
+  :config
+  (dim-major-name 'emacs-lisp-mode "EL")
+  (dim-major-name 'lisp-interaction-mode "ELi"))
+
+(use-package vi-tilde-fringe
+  :config
+  (global-vi-tilde-fringe-mode)
+  (dim-minor-name 'vi-tilde-fringe-mode ""))
+
+(use-package base16-theme
+  :config  (load-theme 'base16-default-dark t))
+
 ; Found on [[https://stackoverflow.com/a/22971471]]
 (defun aumgn/mode-line-fill (face reserve)
   "Return empty space using FACE and leaving RESERVE space on the right."
