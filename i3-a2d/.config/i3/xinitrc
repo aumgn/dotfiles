@@ -2,8 +2,8 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
-export LEFT_SCREEN=DVI-D-0
-export RIGHT_SCREEN=HDMI-0
+export LEFT_SCREEN=HDMI-0
+export RIGHT_SCREEN=DVI-D-0
 
 # ctl lock &
 
