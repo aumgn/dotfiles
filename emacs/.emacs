@@ -131,6 +131,9 @@
 	  ("n" "Notes" entry (file+headline  "~/.org/notes.org"  "General") "* %T %?\n\n  %i\n" :prepend t)))
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
 
+  (define-key aumgn/evil-space-map "a" #'org-agenda)
+  (define-key aumgn/evil-space-map "c" #'org-capture)
+
   (define-prefix-command 'aumgn/org-mode-map)
   (evil-define-key 'normal org-mode-map (kbd "'") 'aumgn/org-mode-map)
   (define-key 'aumgn/org-mode-map "," 'org-babel-previous-src-block)
