@@ -11,6 +11,11 @@
 (use-package base16-theme
   :config  (load-theme 'base16-default-dark t))
 
+(use-package linum-relative
+  :config
+  (setq linum-relative-current-symbol "")
+  (linum-relative-global-mode))
+
 ; Found on [[https://stackoverflow.com/a/22971471]]
 (defun aumgn/mode-line-fill (face reserve)
   "Return empty space using FACE and leaving RESERVE space on the right."
@@ -24,6 +29,7 @@
 
 (setq-default mode-line-format
 	      (list
+	       '(:eval evil-mode-line-tag)
 	       ;; the buffer name; the file name as a tool tip
 	       '(:eval (propertize "  %b" 'face '((:background "forest green" :foreground "black"))))
 
@@ -38,7 +44,7 @@
 				   'face '((:background "AntiqueWhite4" :foreground "black"))))
 
 
-	       (aumgn/mode-line-fill 'mode-line 22)
+	       (aumgn/mode-line-fill 'mode-line 20)
 
 	       ;; line and column
 	       "(" ;; '%02' to set to 2 chars at least; prevents flickering
@@ -48,6 +54,5 @@
 
 	       ;; relative position, size of file
 	       (propertize "%8p" 'face 'font-lock-constant-face)
-	       '(:eval evil-mode-line-tag)
     ))
 
