@@ -26,11 +26,11 @@
   (define-prefix-command 'aumgn/org-mode-map)
   (evil-define-key 'normal org-mode-map (kbd "'") 'aumgn/org-mode-map)
   (evil-define-key 'motion org-mode-map (kbd "'") 'aumgn/org-mode-map)
-  (define-key 'aumgn/org-mode-map "," 'org-babel-previous-src-block)
-  (define-key 'aumgn/org-mode-map "." 'org-babel-next-src-block)
-  (define-key 'aumgn/org-mode-map "x" 'org-babel-execute-maybe)
-  (define-key 'aumgn/org-mode-map "X" 'org-babel-execute-buffer)
-  (define-key 'aumgn/org-mode-map  "t" 'org-babel-tangle))
+  (define-key aumgn/org-mode-map "," 'org-babel-previous-src-block)
+  (define-key aumgn/org-mode-map "." 'org-babel-next-src-block)
+  (define-key aumgn/org-mode-map "x" 'org-babel-execute-maybe)
+  (define-key aumgn/org-mode-map "X" 'org-babel-execute-buffer)
+  (define-key aumgn/org-mode-map  "t" 'org-babel-tangle))
 
 (use-package org-evil)
 (use-package org-bullets

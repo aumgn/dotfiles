@@ -7,9 +7,13 @@
 (aumgn/load "packages")
 (aumgn/load "defaults")
 
+;
 (aumgn/load "interface")
-(aumgn/load "ivy")
 (aumgn/load "evil")
+(aumgn/load "ivy")
+(aumgn/load "company")
+
+;
 (aumgn/load "org")
 (aumgn/load "magit")
 (aumgn/load "ess")
