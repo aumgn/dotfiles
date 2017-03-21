@@ -45,20 +45,12 @@ URxvt*scrollBar: false
 
 rofi.terminal: termite
 rofi.font: Inconsolata 11
-rofi.fg: #cccccc
-rofi.fg-active: #cccccc
-rofi.fg-urgent: #cccccc
-rofi.hlfg: #000000
-rofi.hlfg-active: #000000
-rofi.hlfg-urgent: #000000
-rofi.bg: #222222
-rofi.bg-active: #222222
-rofi.bg-urgent: #222222
-rofi.hlbg: #aaaaaa
-rofi.hlbg-active: #aaaaaa
-rofi.hlbg-urgent: #aaaaaa
-rofi.bgalt: #222222
-rofi.bc: #cccccc
+rofi.separator-style:solid
+
+rofi.color-window:  base00,  base07,  base07
+rofi.color-normal:  base00,  base07,  base00,  base02,  base07
+rofi.color-urgent:  base00,  base08,  base00,  base08,  base07
+rofi.color-active:  base00,  base0B,  base00,  base0B,  base07
 
 rofi.lines: 30
 rofi.columns: 1
