@@ -30,6 +30,7 @@
   (define-key aumgn/space-map "x" #'execute-extended-command)
   (define-key aumgn/space-map "e" #'eval-expression)
   (define-key aumgn/space-map "b" #'ivy-switch-buffer)
+  (define-key aumgn/space-map "B" #'list-buffers)
   (define-key aumgn/space-map "s" #'save-buffer)
   (define-key aumgn/space-map "S" #'write-file)
   (define-key aumgn/space-map "d" #'evil-window-delete)
@@ -47,5 +48,6 @@
   (define-key aumgn/space-w-map "k" 'windmove-up)
   (define-key aumgn/space-w-map "l" 'windmove-right)
 
+  (evil-ex-define-cmd "k[ill]" 'kill-this-buffer)
   (evil-mode 1))
 
