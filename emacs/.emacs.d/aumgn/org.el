@@ -28,9 +28,15 @@
   (evil-define-key 'motion org-mode-map (kbd "'") 'aumgn/org-mode-map)
   (define-key aumgn/org-mode-map "," 'org-babel-previous-src-block)
   (define-key aumgn/org-mode-map "." 'org-babel-next-src-block)
+  (define-key aumgn/org-mode-map "p" 'org-set-property)
   (define-key aumgn/org-mode-map "x" 'org-babel-execute-maybe)
   (define-key aumgn/org-mode-map "X" 'org-babel-execute-buffer)
-  (define-key aumgn/org-mode-map  "t" 'org-babel-tangle))
+  (define-key aumgn/org-mode-map "t" 'org-babel-tangle)
+
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((sh . t))))
+
 
 (use-package org-evil)
 (use-package org-bullets
