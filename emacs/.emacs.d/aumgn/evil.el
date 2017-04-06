@@ -1,3 +1,11 @@
+(defun aumgn/evil-close-and-kill-next-pane ()
+      "If there are multiple windows, then close the other pane and kill the buffer in it also."
+      (interactive)
+      (other-window 1)
+      (kill-this-buffer)
+      (if (not (one-window-p))
+          (delete-window)))
+
 (use-package evil
   :init
   (setq evil-normal-state-tag
@@ -34,7 +42,7 @@
   (define-key aumgn/space-map "s" #'save-buffer)
   (define-key aumgn/space-map "S" #'write-file)
   (define-key aumgn/space-map "d" #'evil-window-delete)
-  (define-key aumgn/space-map "D" #'delete-other-windows)
+  (define-key aumgn/space-map "D" #'aumgn/evil-close-and-kill-next-pane)
   (define-key aumgn/space-map "k" #'kill-this-buffer)
   (define-key aumgn/space-map "K" #'kill-buffer-and-window)
   (define-key aumgn/space-map "f" #'find-file)
