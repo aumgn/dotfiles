@@ -16,6 +16,7 @@
 ;
 (aumgn/load "org")
 (aumgn/load "magit")
+(aumgn/load "shell")
 (aumgn/load "ess")
 
 (load custom-file :noerror)
