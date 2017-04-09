@@ -15,45 +15,53 @@
 #define base0E #ba8baf
 #define base0F #a16946
 
-*.foreground:   base05
-*.background:   base00
-*.cursorColor:  base05
+*foreground:   base05
+*background:   base00
+*cursorColor:  base05
 
-*.color0:       base00
-*.color1:       base08
-*.color2:       base0B
-*.color3:       base0A
-*.color4:       base0D
-*.color5:       base0E
-*.color6:       base0C
-*.color7:       base05
+*color0:       base00
+*color1:       base08
+*color2:       base0B
+*color3:       base0A
+*color4:       base0D
+*color5:       base0E
+*color6:       base0C
+*color7:       base05
 
-*.color8:       base03
-*.color9:       base09
-*.color10:      base01
-*.color11:      base02
-*.color12:      base04
-*.color13:      base06
-*.color14:      base0F
-*.color15:      base07
+*color8:       base03
+*color9:       base09
+*color10:      base01
+*color11:      base02
+*color12:      base04
+*color13:      base06
+*color14:      base0F
+*color15:      base07
 
-URxvt*termName: rxvt-unicode
+URxvt*termName: rxvt
 URxvt*font: xft:Inconsolata:size=12
 URxvt*boldFont: xft:Inconsolata:size=12
 URxvt.boldItalicFont:: xft:Inconsolata:size=12
 URxvt*scrollBar: false
 
+rofi.modi: run,ssh
 rofi.terminal: termite
-rofi.font: Inconsolata 11
-rofi.separator-style:solid
+rofi.font: Inconsolata 14
 
-rofi.color-window:  base00,  base07,  base07
-rofi.color-normal:  base00,  base07,  base00,  base02,  base07
-rofi.color-urgent:  base00,  base08,  base00,  base08,  base07
-rofi.color-active:  base00,  base0B,  base00,  base0B,  base07
+rofi.display-run:
+rofi.location: 0
+rofi.hide-scrollbar: True
+rofi.separator-style: solid
+rofi.lines:   20
+rofi.columns:  1
+rofi.width:   20
+rofi.padding: 30
 
-rofi.lines: 30
-rofi.columns: 1
-rofi.width: 70
-rofi.location: 2
-rofi.yoffset: 18
+! Enable the extended coloring options
+rofi.color-enabled: true
+! Property Name     BG       Border   Separator
+rofi.color-window:  base01,  base03,  base00
+! Property Name     BG       FG        BG-alt   Head-BG  Head-FG
+rofi.color-normal:  base01,  base05,   base01,  base01,  base0B
+rofi.color-active:  base01,  base0D,   base01,  base01,  base0D
+rofi.color-urgent:  base01,  base08,   base01,  base01,  base08
+
