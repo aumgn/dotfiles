@@ -133,10 +133,28 @@ bindsym $mod+Return       exec termite
 bindsym $mod+BackSpace    exec eg
 bindsym $mod+Menu         exec eg
 bindsym Mod4+e            exec thunar
-bindsym $mod+n            exec firefox -profile .mozilla/firefox/aumgn
-bindsym $mod+Shift+n      exec firefox -profile .mozilla/firefox/aumgn --private-window
-bindsym $mod+Mod1+n       exec google-chrome-stable
+
+#ifdef USER_nan 
+#ifdef HOST_a2d
+bindsym $mod+n exec google-chrome-stable
+bindsym $mod+Shift+n exec google-chrome-stable --incognito
+#else
+bindsym $mod+n exec chromium
+bindsym $mod+Shift+n exec chromium --incognito
+#endif
+bindsym $mod+Mod1+n exec firefox
+bindsym $mod+Mod1+Shift+n exec firefox -profile .mozilla/firefox/aumgn --private-window
+#else
+bindsym $mod+n exec firefox -profile .mozilla/firefox/aumgn
+bindsym $mod+Shift+n exec firefox -profile .mozilla/firefox/aumgn --private-window
+#ifdef HOST_a2d
+bindsym $mod+Mod1+n exec google-chrome-stable
 bindsym $mod+Mod1+Shift+n exec google-chrome-stable --incognito
+#else
+bindsym $mod+Mod1+n exec chromium
+bindsym $mod+Mod1+Shift+n exec chromium --incognito
+#endif
+#endif
 
 ## Audio
 bindsym XF86AudioMute        exec ctl speakers toggle
@@ -184,10 +202,10 @@ bindsym $mod+r mode "Resize"
 ## Bars
 bar {
 #ifdef HOST_a2d
-      status_command i3status -c /home/aumgn/.config/i3/status_config_left
+      status_command i3status -c ~/.config/i3/status_config_left
       output LEFT_MONITOR
 #else
-      status_command i3status -c /home/aumgn/.config/i3/status_config
+      status_command i3status -c ~/.config/i3/status_config
 #endif
 
       tray_output primary
@@ -241,7 +259,7 @@ client.urgent             base02     base08     base07     base08
 client.background         base00
 
 #ifdef USER_nan
-exec --no-startup-id feh  --bg-fill '~/.config/base/wallpaper1.png'
+exec --no-startup-id feh  --bg-fill ~/.config/base/wallpaper1.png
 #else
 exec --no-startup-id xsetroot -solid base00
 #endif

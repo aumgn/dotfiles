@@ -53,8 +53,8 @@ volume xonar {
 
 #ifdef HOST_a2l
 volume master {
-        format = "X %volume"
-        format_muted = "X"
+        format = " %volume"
+        format_muted = ""
         device = "pulse:alsa_output.pci-0000_00_1b.0.analog-stereo"
 }
 #endif
