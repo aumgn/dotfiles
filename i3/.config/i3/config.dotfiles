@@ -1,6 +1,6 @@
-# i3 config file (v4)
-#
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+##i3 config file (v4)
+##
+## Please see http:##i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
 set $mod2 Shift
@@ -17,6 +17,21 @@ set $w8 8
 set $w9 9
 set $w0 10
 
+#ifdef HOST_a2d
+workspace $w1 output LEFT_MONITOR
+workspace $w2 output LEFT_MONITOR
+workspace $w3 output LEFT_MONITOR
+workspace $w4 output LEFT_MONITOR
+workspace $w5 output LEFT_MONITOR
+workspace $w6 output RIGHT_MONITOR
+workspace $w7 output RIGHT_MONITOR
+workspace $w8 output RIGHT_MONITOR
+workspace $w9 output RIGHT_MONITOR
+workspace $w0 output RIGHT_MONITOR
+
+bindsym $mod+c move workspace to output right
+#endif
+
 new_window 1pixel
 workspace_layout default
 workspace_auto_back_and_forth yes
@@ -24,7 +39,7 @@ focus_follows_mouse no
 floating_modifier $mod
 font pango: Inconsolata 10
 
-# Layout
+## Layout
 bindsym $mod+b split h
 bindsym $mod+v split v
 bindsym $mod+s layout stacking
@@ -33,21 +48,36 @@ bindsym $mod+x layout toggle split
 bindsym $mod+f fullscreen
 bindsym $mod+space floating toggle
 
-# Focus
+## Focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+
+#ifdef USER_nan
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+#endif
+
 bindsym $mod+q focus parent
 bindsym $mod+a focus child
 
-# Move window
+## Move window
 bindsym $mod+$mod2+h move left
 bindsym $mod+$mod2+j move down
 bindsym $mod+$mod2+k move up
 bindsym $mod+$mod2+l move right
 
-# Switch to workspace
+#ifdef USER_nan
+bindsym $mod+$mod2+Left  move left
+bindsym $mod+$mod2+Down  move down
+bindsym $mod+$mod2+Up    move up
+bindsym $mod+$mod2+Right move right
+#endif
+
+## Switch to workspace
 bindsym $mod+1 workspace $w1
 bindsym $mod+2 workspace $w2
 bindsym $mod+3 workspace $w3
@@ -62,7 +92,7 @@ bindsym $mod+0 workspace $w0
 bindsym $mod+Prior workspace prev
 bindsym $mod+Next workspace next
 
-# Move focused container to workspace
+## Move focused container to workspace
 bindsym $mod+$mod2+1 move container to workspace $w1
 bindsym $mod+$mod2+2 move container to workspace $w2
 bindsym $mod+$mod2+3 move container to workspace $w3
@@ -77,7 +107,7 @@ bindsym $mod+$mod2+0 move container to workspace $w0
 bindsym $mod+$mod2+Prior workspace prev
 bindsym $mod+$mod2+Next workspace next
 
-# Rename workspace
+## Rename workspace
 bindsym $mod+$mod3+1 rename workspace to $w1
 bindsym $mod+$mod3+2 rename workspace to $w2
 bindsym $mod+$mod3+3 rename workspace to $w3
@@ -92,14 +122,12 @@ bindsym $mod+$mod3+0 rename workspace to $w0
 bindsym $mod+$mod3+Prior workspace prev
 bindsym $mod+$mod3+Next workspace next
 
-bindsym $mod+c move workspace to output right
-
-# Kill
+## Kill
 bindsym $mod+w kill
 bindsym $mod+F4 kill
 bindsym Mod1+F4 kill
 
-# Applications
+## Applications
 bindsym $mod+d            exec rofi -show run
 bindsym $mod+Return       exec termite
 bindsym $mod+BackSpace    exec eg
@@ -107,10 +135,10 @@ bindsym $mod+Menu         exec eg
 bindsym Mod4+e            exec thunar
 bindsym $mod+n            exec firefox -profile .mozilla/firefox/aumgn
 bindsym $mod+Shift+n      exec firefox -profile .mozilla/firefox/aumgn --private-window
-bindsym $mod+Mod1+n       exec chromium
-bindsym $mod+Mod1+Shift+n exec chromium --incognito
+bindsym $mod+Mod1+n       exec google-chrome-stable
+bindsym $mod+Mod1+Shift+n exec google-chrome-stable --incognito
 
-# Audio
+## Audio
 bindsym XF86AudioMute        exec ctl speakers toggle
 bindsym $mod+F1              exec ctl speakers toggle
 bindsym XF86AudioLowerVolume exec ctl speakers down
@@ -118,7 +146,7 @@ bindsym $mod+F2              exec ctl speakers down
 bindsym XF86AudioRaiseVolume exec ctl speakers up
 bindsym $mod+F3              exec ctl speakers up
 
-# Music
+## Cmus
 bindsym $mod+F5       exec ctl music toggle
 bindsym XF86AudioPlay exec ctl music toggle
 bindsym $mod+F6       exec ctl music stop
@@ -128,7 +156,9 @@ bindsym XF86AudioPrev exec ctl music prev
 bindsym $mod+F8       exec ctl music next
 bindsym XF86AudioNext exec ctl music next
 
+#ifdef HOST_a2l
 bindsym XF86TouchpadToggle exec touchpad-toggle
+#endif
 
 bindsym $mod+p                  exec ctl lock
 bindsym $mod+$mod2+$mod3+Delete exec ctl reboot
@@ -138,12 +168,12 @@ bindsym $mod+$mod2+c            reload
 bindsym $mod+$mod2+r            restart
 bindsym $mod+$mod2+$mod3+Home   exit
 
-# Resize mode
+## Resize mode
 mode "Resize" {
         bindsym h resize shrink width  10 px or 10 ppt
-        bindsym h resize grow   height 10 px or 10 ppt
-        bindsym h resize shrink height 10 px or 10 ppt
-        bindsym h resize grow   width  10 px or 10 ppt
+        bindsym j resize grow   height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow   width  10 px or 10 ppt
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -151,27 +181,68 @@ mode "Resize" {
 
 bindsym $mod+r mode "Resize"
 
-# Bars
+## Bars
 bar {
-      font pango: Ubuntu, FontAwesome 11
+#ifdef HOST_a2d
+      status_command i3status -c /home/aumgn/.config/i3/status_config_left
+      output LEFT_MONITOR
+#else
+      status_command i3status -c /home/aumgn/.config/i3/status_config
+#endif
+
       tray_output primary
       position top
-      colors {
-            background #333333
-            statusline #CCCCCC
 
-            focused_workspace #333333 #999999 #000000
-            active_workspace #333333 #444444 #aaaaaa
-            inactive_workspace #333333 #222222 #aaaaaa
-            urgent_workspace #333333 #aaaaaa #000000
-      }
-      status_command i3status -c /home/aumgn/.config/i3/status_config
       separator_symbol "   "
+      font pango: Ubuntu, FontAwesome 11
+
+      colors {
+	    separator  base03
+	    background base01
+	    statusline base05
+
+	    ## <colorclass>      <border>  <bg>      <txt>
+	    focused_workspace    base06    base06    base00
+	    active_workspace     base02    base02    base07
+	    inactive_workspace   base01    base01    base03
+	    urgent_workspace     base08    base08    base07
+      }
 }
 
-client.focused #999999 #999999 #000000
-client.focused_inactive #444444 #444444 #aaaaaa
-client.unfocused #222222 #222222 #aaaaaa
-client.urgent #aaaaaa #aaaaaa #000000
+#ifdef HOST_a2d
+bar {
+      status_command i3status -c /home/aumgn/.config/i3/status_config_right
+      tray_output primary
+      output RIGHT_MONITOR
+      position top
 
-exec --no-startup-id ~/.fehbg
+      font pango: Ubuntu, FontAwesome 11
+      separator_symbol "   "
+      colors {
+	    separator  base03
+	    background base01
+	    statusline base05
+
+	    ## <colorclass>      <border>  <bg>      <txt>
+	    focused_workspace    base06    base06    base00
+	    active_workspace     base02    base02    base07
+	    inactive_workspace   base01    base01    base03
+	    urgent_workspace     base08    base08    base07
+      }
+}
+#endif
+
+## <class>                <border>   <backgr.>  <text>     <indic.>    <child_border>
+client.focused            base06     base06     base00     base01
+client.focused_inactive   base02     base02     base03     base01
+client.unfocused          base01     base01     base03     base01
+client.urgent             base02     base08     base07     base08
+
+client.background         base00
+
+#ifdef USER_nan
+exec --no-startup-id feh  --bg-fill '~/.config/base/wallpaper1.png'
+#else
+exec --no-startup-id xsetroot -solid base00
+#endif
+

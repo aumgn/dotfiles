@@ -1,0 +1,6 @@
+URxvt*termName: rxvt-unicode
+URxvt*font: xft:Inconsolata:size=12
+URxvt*boldFont: xft:Inconsolata:size=12
+URxvt.boldItalicFont:: xft:Inconsolata:size=12
+URxvt*scrollBar: false
+

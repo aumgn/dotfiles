@@ -1,0 +1,24 @@
+#include "base/colors"
+
+rofi.modi: run,ssh
+rofi.terminal: termite
+rofi.font: Inconsolata 14
+
+rofi.display-run:
+rofi.location: 0
+rofi.hide-scrollbar: True
+rofi.separator-style: solid
+rofi.lines:   20
+rofi.columns:  1
+rofi.width:   20
+rofi.padding: 30
+
+! Enable the extended coloring options
+rofi.color-enabled: true
+! Property Name     BG       Border   Separator
+rofi.color-window:  base01,  base03,  base00
+! Property Name     BG       FG        BG-alt   Head-BG  Head-FG
+rofi.color-normal:  base01,  base05,   base01,  base01,  base0B
+rofi.color-active:  base01,  base0D,   base01,  base01,  base0D
+rofi.color-urgent:  base01,  base08,   base01,  base01,  base08
+

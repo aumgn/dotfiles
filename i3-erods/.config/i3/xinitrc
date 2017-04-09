@@ -1,6 +1,0 @@
-setxkbmap -layout fr -option caps:escape
-numlockx on &
-
-xrdb -load ~/.Xresources
-
-exec i3
