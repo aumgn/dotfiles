@@ -229,7 +229,7 @@ bar {
 
 #ifdef HOST_a2d
 bar {
-      status_command i3status -c /home/aumgn/.config/i3/status_config_right
+      status_command i3status -c ~/.config/i3/status_config_right
       tray_output primary
       output RIGHT_MONITOR
       position top
