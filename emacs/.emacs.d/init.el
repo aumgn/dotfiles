@@ -18,6 +18,7 @@
 (aumgn/load "magit")
 (aumgn/load "shell")
 (aumgn/load "ess")
+(aumgn/load "gtags")
 
 (load custom-file :noerror)
 
