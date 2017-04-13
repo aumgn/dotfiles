@@ -39,3 +39,6 @@ if [[ "$HOST" == a2l ]]; then
     pulseaudio --start
 fi
 
+if [[ "$HOST" == a2e ]]; then
+    setxkbmap -layout fr -option caps:escape
+fi
