@@ -1,33 +1,25 @@
-# 1 "config.dotfiles"
-# 1 "<built-in>"
-# 1 "<command-line>"
-# 1 "/usr/include/stdc-predef.h" 1 3 4
-# 1 "<command-line>" 2
-# 1 "/home/aumgn/.config/base/colors" 1
-# 1 "<command-line>" 2
-# 1 "config.dotfiles"
 [options]
 font = Inconsolata 11
 allow_bold = false
 
 [colors]
 
-foreground = #d8d8d8
+foreground      = #d8d8d8
 foreground_bold = #d8d8d8
-cursor = #d8d8d8
-background = #181818
+cursor          = #d8d8d8
+background      = #181818
 
 ## 16 color space
-color0 = #181818
-color1 = #ab4642
-color2 = #a1b56c
-color3 = #f7ca88
-color4 = #7cafc2
-color5 = #ba8baf
-color6 = #86c1b9
-color7 = #d8d8d8
-color8 = #585858
-color9 = #ab4642
+color0  = #181818
+color1  = #ab4642
+color2  = #a1b56c
+color3  = #f7ca88
+color4  = #7cafc2
+color5  = #ba8baf
+color6  = #86c1b9
+color7  = #d8d8d8
+color8  = #585858
+color9  = #ab4642
 color10 = #a1b56c
 color11 = #f7ca88
 color12 = #7cafc2
@@ -42,3 +34,4 @@ color18 = #282828
 color19 = #383838
 color20 = #b8b8b8
 color21 = #e8e8e8
+

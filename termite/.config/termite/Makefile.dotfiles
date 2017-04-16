@@ -1,7 +1,0 @@
-all: config
-
-FLAGS=-include ~/.config/base/colors -DUSER=$(USER) -DUSER_$(USER) -DHOST_$(HOST) -DLEFT_MONITOR=$(LEFT_MONITOR) -DRIGHT_MONITOR=$(RIGHT_MONITOR)
-
-config: config.dotfiles
-	cpp $(FLAGS) config.dotfiles config
-

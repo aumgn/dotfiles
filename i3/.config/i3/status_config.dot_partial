@@ -5,59 +5,23 @@ general {
         interval = 1
 }
 
-#ifdef HOST_a2d
-#ifdef LEFT
-order += "disk /"
-order += "ethernet _first_"
-order += "volume hdmi"
-order += "volume xonar"
-#else
-order += "cpu_usage"
-order += "cpu_temperature 0"
-order += "tztime datetime"
-order += "tztime user"
-#endif
-#endif
-
-#ifdef HOST_a2l
-order += "battery 0"
-order += "wireless _first_"
-order += "ethernet _first_"
-order += "cpu_usage"
-order += "cpu_temperature 0"
-order += "volume master"
-order += "tztime datetime"
-order += "tztime user"
-#endif
-
-#ifdef HOST_a2e
-order += "cpu_usage"
-order += "disk /"
-order += "ethernet _first_"
-order += "tztime datetime"
-#endif
-
-#ifdef HOST_a2d
-volume hdmi {
+volume a2d_hdmi {
         format = "H %volume"
         format_muted = "H"
         device = "pulse:alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1"
 }
 
-volume xonar {
+volume a2d_xonar {
         format = "X %volume"
         format_muted = "X"
         device = "pulse:alsa_output.pci-0000_05_04.0.analog-stereo"
 }
-#endif
 
-#ifdef HOST_a2l
-volume master {
+volume a2l_master {
         format = " %volume"
         format_muted = ""
         device = "pulse:alsa_output.pci-0000_00_1b.0.analog-stereo"
 }
-#endif
 
 ethernet _first_ {
         format_up = "  %ip"
@@ -93,5 +57,5 @@ cpu_temperature 0 {
 }
 
 tztime datetime {
-	format = " %d %b   %H:%M      ${USER}  "
+	format = " %d %b   %H:%M      {{USER}}  "
 }

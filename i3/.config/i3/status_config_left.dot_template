@@ -1,0 +1,9 @@
+## UTF-8 : ß
+
+order += "disk /"
+order += "ethernet _first_"
+order += "volume a2d_hdmi"
+order += "volume a2d_xonar"
+
+{{> status_config.dot_partial}}
+

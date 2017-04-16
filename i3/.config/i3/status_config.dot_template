@@ -1,0 +1,22 @@
+## UTF-8 : ß
+
+{{#host_a2l}}
+order += "battery 0"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "cpu_usage"
+order += "cpu_temperature 0"
+order += "volume a2l_master"
+order += "tztime datetime"
+order += "tztime user"
+{{/host_a2l}}
+
+{{#host_a2e}}
+order += "cpu_usage"
+order += "disk /"
+order += "ethernet _first_"
+order += "tztime datetime"
+{{/host_a2e}}
+
+{{> status_config.dot_partial}}
+

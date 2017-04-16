@@ -4,8 +4,11 @@ if [[ "$HOST" == a2d ]]; then
     export RIGHT_MONITOR=DVI-D-0
 fi
 
-for makefile in ~/.config/*/Makefile.dotfiles; do
-    make -C"$(dirname $makefile)" -f"$(basename $makefile)"
+for template in $HOME/.config/*/*.dot_template; do
+    pushd $(dirname $template)
+    file=$(basename $template .dot_template)
+    $HOME/.local/bin/mo --source=$HOME/.config/base/mo.env $template > $file
+    popd
 done
 
 numlockx on &
