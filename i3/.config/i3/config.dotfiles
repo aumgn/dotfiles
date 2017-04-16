@@ -258,9 +258,5 @@ client.urgent             base02     base08     base07     base08
 
 client.background         base00
 
-#ifdef USER_nan
-exec --no-startup-id feh  --bg-fill ~/.config/base/wallpaper1.png
-#else
-exec --no-startup-id xsetroot -solid base00
-#endif
+exec --no-startup-id feh --randomize --bg-fill ~/.local/share/wallpapers/*
 
