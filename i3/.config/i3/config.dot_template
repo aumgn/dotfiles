@@ -269,5 +269,11 @@ client.urgent             {{base02}}  {{base08}}  {{base07}}  {{base08}}
 
 client.background         {{base00}}
 
+{{#user_nan}}
+exec --no-startup-id feh --randomize --bg-fill ~/.local/share/wallpapers/redpanda2.jpg
+{{/user_nan}}
+
+{{^user_nan}}
 exec --no-startup-id feh --randomize --bg-fill ~/.local/share/wallpapers/*
+{{/user_nan}}
 
