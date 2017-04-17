@@ -4,3 +4,6 @@ i3/.config/i3/config
 i3/.config/i3/status_config_left
 i3/.config/i3/status_config_right
 i3/.config/i3/status_config
+termite/.config/termite/config
+dunst/.config/dunst/dunstrc
+
