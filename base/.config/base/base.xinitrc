@@ -30,9 +30,7 @@ if [[ "$HOST" == a2d ]]; then
 
     setxkbmap -layout gb -variant extd -option caps:escape
     pulseaudio --start
-fi
-
-if [[ "$HOST" == a2l ]]; then
+elif [[ "$HOST" == a2l ]]; then
     xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
     xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2
     xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Timeout" 200
@@ -40,8 +38,10 @@ if [[ "$HOST" == a2l ]]; then
 
     setxkbmap -layout fr -option caps:escape
     pulseaudio --start
-fi
-
-if [[ "$HOST" == a2e ]]; then
+elif [[ "$HOST" == a2e ]]; then
     setxkbmap -layout fr -option caps:escape
 fi
+
+for xinitrc in ~/.config/*/xinitrc; do
+    . $xinitrc
+done

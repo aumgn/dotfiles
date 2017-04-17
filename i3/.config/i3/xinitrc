@@ -1,4 +1,0 @@
-. ~/.config/base/xinitrc
-
-exec i3
-
