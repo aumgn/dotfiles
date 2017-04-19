@@ -1,0 +1,36 @@
+#! /bin/bash
+
+fifo_path="$XDG_RUNTIME_DIR/cmus-status/*.fifo"
+
+echo "$*" >> ~/log
+
+if ! ls $fifo_path >/dev/null 2>&1; then
+    exit 0
+fi
+
+artist="Unknown"
+file="Unknown"
+while [[ "$1" != "" ]]; do
+    case "$1" in
+        title)
+            title="$2"
+        ;;
+        artist)
+            artist="$2"
+        ;;
+	file)
+	    file="$(basename "$2")"
+	;;
+	status)
+	    status="$2"
+	    echo $status >> ~/log
+    esac
+    shift
+    shift
+done
+
+title=${title:-$file}
+
+for fifo in $fifo_path; do
+    echo "$artist~$title" >> $fifo
+done
