@@ -4,13 +4,6 @@ if [[ "$HOST" == a2d ]]; then
     export RIGHT_MONITOR=DVI-D-0
 fi
 
-for template in $HOME/.config/*/*.dot_template; do
-    pushd $(dirname $template)
-    file=$(basename $template .dot_template)
-    $HOME/.local/bin/mo --source=$HOME/.config/base/mo.env $template > $file
-    popd
-done
-
 numlockx on &
 for xresources in ~/.config/*/Xresources; do
     xrdb -I$HOME/.config -merge $xresources
