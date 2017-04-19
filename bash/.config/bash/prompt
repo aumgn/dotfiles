@@ -1,0 +1,58 @@
+AUMGN_PROMPT_HOST="${AUMGN_PROMPT_HOST:-$HOSTNAME}"
+export AUMGN_PROMPT_HOST
+
+if [[ "$TERM" != dumb ]]; then
+    aumgn_title() {
+	echo -ne "\033]2;bash@$AUMGN_PROMPT_HOST ❯\007"
+    }
+
+    aumgn_prompt_init() {
+        if [[ $UID -eq 0 ]]; then
+            symbol='❯❯❯'
+        else
+            symbol='❯'
+        fi
+
+        host=''
+        if [[ -n "$SSH_CLIENT" || -n "$SSH_TTY" ]]; then
+            host="$AUMGN_PROMPT_HOST "
+        fi
+
+        export aumgn_prompt_host=$host
+        export aumgn_prompt_symbol=$symbol
+        export PROMPT_COMMAND=aumgn_prompt_command
+    }
+
+    aumgn_prompt_command() {
+        local status=$?
+        local pwd=$(dirs)
+
+        if [[ $status -eq 0 ]]; then
+            local status=""
+            local status_color="\[$(tput setaf 2)\]"
+            local status_symbol="✔"
+        else
+            local status="$status "
+            local status_color="\[$(tput setaf 1)\]"
+            local status_symbol="✘"
+        fi
+
+        local color_pwd="\[$(tput setaf 8)\]"
+        local color_reset="\[$(tput sgr0)\]"
+
+        local right_size=$(echo "$pwd$status$status_symbol" | wc -c)
+        local moveright="\[$(tput cuf $(( $COLUMNS - $right_size - 1 )))\]"
+
+        local sc="\[$(tput sc)\]"
+        local rc="\[$(tput rc)\]"
+
+        local left="${status_color}${aumgn_prompt_host}${aumgn_prompt_symbol}${color_reset} "
+        local right="${color_pwd}\[${pwd}\]${color_reset}\[ \]${status_color}\[${status}${status_symbol}\]${color_reset}"
+
+        PS1="${left}${sc}${moveright}${right}${rc}"
+
+	aumgn_title
+    }
+
+    aumgn_prompt_init "$1"
+fi

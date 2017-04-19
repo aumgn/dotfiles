@@ -1,0 +1,13 @@
+export PATH=$HOME/.local/bin:$PATH
+export HOST=$(cat /etc/hostname)
+export HOSTNAME=$HOST
+
+export XDG_CONFIG_HOM=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+
+export EDITOR=et
+export VISUAL=eg
+
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket

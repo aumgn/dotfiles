@@ -1,0 +1,11 @@
+export AUMGN_BASHRC_SOURCE=yes
+
+source ~/.config/base/environment
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+source ~/.config/bash/prompt
+source ~/.local/share/shell/z/z.sh
+
+source ~/.config/shell/aliases

@@ -25,6 +25,9 @@ zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path "${ZDOTDIR:-$HOME}/.zcompcache"
 
+# More completions
+fpath=(~/.local/share/zsh/zsh-completions/src $fpath)
+
 # History
 setopt BANG_HIST
 setopt SHARE_HISTORY
@@ -36,37 +39,25 @@ export SAVEHIST=10000
 export HISTFILE=~/.zhistory
 
 # Syntax Highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # History Substring search
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/.local/share/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+# Auto suggestions
+source ~/.local/share/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Prompt
-autoload promptinit
-promptinit
+source ~/.config/zsh/prompt
 
-function prompt_aumgn_setup {
-  setopt LOCAL_OPTIONS
-  unsetopt XTRACE KSH_ARRAYS
-  prompt_opts=(cr percent subst)
+# New commands
+source ~/.local/share/shell/z/z.sh
+source ~/.local/share/zsh/k/k.sh
 
-  # Customizable parameters.
-  local max_path_chars=30
-  local success='%F{071}'
-  local failure='%F{124}'
-  local dir='%F{008}'
+# Aliases
+source ~/.config/shell/aliases
+alias l="k -h --no-vcs"
+alias ll="k -Ah --no-vcs"
 
-  # Define prompts.
-  PROMPT="%(?.${success}.${failure})%(!.%m%B ❯❯❯%b.${SSH_TTY:+%m }%B❯%b)%f "
-  RPROMPT="${dir}%~%f %(?.${success}✔.${failure}%? ✘)%f"
-}
-
-prompt_aumgn_setup
-
-# Commands
-source ~/.k/k.sh
-alias l="k -Ah --no-vcs"
-alias ll="k -h --no-vcs"
-alias ec="emacs -nw"

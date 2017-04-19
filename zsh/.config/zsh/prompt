@@ -1,0 +1,28 @@
+function aumgn_title() {
+  echo -ne "\033]2;zsh@$HOST ❯\007"
+}
+
+function precmd {
+  aumgn_title
+}
+
+function aumgn_prompt_init {
+  autoload promptinit
+  promptinit
+
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  # Customizable parameters.
+  local max_path_chars=30
+  local success='%F{green}'
+  local failure='%F{red}'
+  local dir='%F{8}'
+
+  # Define prompts.
+  PROMPT="%(?.${success}.${failure})%(!.%m%B ❯❯❯%b.${SSH_TTY:+%m }%B❯%b)%f "
+  RPROMPT="${dir}%~%f %(?.${success}✔.${failure}%? ✘)%f"
+}
+
+aumgn_prompt_init

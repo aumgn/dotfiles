@@ -1,3 +1,4 @@
+source ~/.config/base/environment
 export HOST=$(cat /etc/hostname)
 if [[ "$HOST" == a2d ]]; then
     export LEFT_MONITOR=HDMI-0
@@ -8,6 +9,8 @@ numlockx on &
 for xresources in ~/.config/*/Xresources; do
     xrdb -I$HOME/.config -merge $xresources
 done
+
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
 
 if [[ "$USER" == nan ]]; then
     export GTK_IM_MODULE=ibus
