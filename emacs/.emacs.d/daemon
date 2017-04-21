@@ -1,0 +1,11 @@
+#! /bin/bash
+
+case $1 in
+     start)
+         . ~/.config/base/environment
+         /usr/bin/emacs --daemon
+     ;;
+     stop)
+         /usr/bin/emacsclient --eval "(kill-emacs)"
+     ;;
+esac
