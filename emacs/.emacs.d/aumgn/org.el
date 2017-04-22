@@ -35,7 +35,8 @@
 
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((sh . t))))
+   '((sh . t)
+     (sql . t))))
 
 
 (use-package org-evil)
