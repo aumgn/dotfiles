@@ -1,0 +1,32 @@
+#! /bin/bash
+
+export LC_NUMERIC="en_US.UTF-8"
+
+SSHDIR=$HOME/.ssh
+CONFIG=$SSHDIR/config
+CONFIGTOP=$SSHDIR/configtop
+HOSTSDIR=$SSHDIR/hosts
+
+mkdir -p "$HOSTSDIR"
+
+gen_ssh_config() {
+    echo -n '' > "$CONFIG"
+    if [[ -f "$CONFIGTOP" ]]; then
+        cat "$CONFIGTOP" >> "$CONFIG"
+        echo '' >> "$CONFIG"
+    fi
+
+    if ls $HOSTSDIR/* >/dev/null 2>&1; then
+        for f in $HOSTSDIR/*; do
+            cat "$f" >> "$CONFIG"
+            echo '' >> "$CONFIG"
+        done
+    fi
+}
+
+case "$1" in
+    gen)
+        gen_ssh_config
+    ;;
+esac
+
