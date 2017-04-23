@@ -132,7 +132,13 @@ bindsym $mod+d            exec rofi -show run
 bindsym $mod+Return       exec termite
 bindsym $mod+BackSpace    exec eg
 bindsym $mod+Menu         exec eg
-bindsym Mod4+e            exec thunar
+{{#user_aumgn}}
+bindsym $mod+e            exec termite -t ranger -e ranger
+bindsym $mod+Shift+e      exec thunar
+{{/user_aumgn}}
+{{^user_aumgn}}
+bindsym $mod+e            exec thunar
+{{/user_aumgn}}
 
 {{#user_nan}}
 
@@ -189,11 +195,10 @@ bindsym XF86TouchpadToggle exec touchpad-toggle
 {{/host_a2l}}
 
 bindsym $mod+p                  exec ctl lock
-bindsym $mod+$mod2+$mod3+Delete exec ctl reboot
-bindsym $mod+$mod2+$mod3+End    exec ctl shutdown
+bindsym $mod+Escape             exec rofi-system
 
-bindsym $mod+$mod2+c            reload
-bindsym $mod+$mod2+r            restart
+bindsym $mod+$mod2+c            exec dot-make; reload
+bindsym $mod+$mod2+r            exec dot-make; restart
 bindsym $mod+$mod2+$mod3+Home   exit
 
 ## Resize mode
@@ -209,6 +214,15 @@ mode "Resize" {
 
 bindsym $mod+r mode "Resize"
 
+{{#host_a2d}}
+for_window [title="^cmus$"] move scratchpad
+bindsym $mod+numbersign [title="cmus"] scratchpad show
+
+bindsym $mod+bracketleft  exec pamvsink $(pasinkidx 'HDMI')
+bindsym $mod+bracketright exec pamvsink $(pasinkidx 'Xonar')
+{{/host_a2d}}
+
+{{^host_a2d}}
 ## Bars
 bar {
       {{#host_a2d}}
@@ -260,6 +274,7 @@ bar {
       }
 }
 {{/host_a2d}}
+{{/host_a2d}}
 
 ## <class>                <border>    <backgr.>   <text>      <indic.>    <child_border>
 client.focused            {{base06}}  {{base06}}  {{base00}}  {{base01}}
@@ -277,3 +292,6 @@ exec --no-startup-id feh --randomize --bg-fill ~/.local/share/wallpapers/redpand
 exec --no-startup-id feh --randomize --bg-fill ~/.local/share/wallpapers/*
 {{/user_nan}}
 
+{{#host_a2d}}
+exec_always --no-startup-id ~/.config/polybar/launch
+{{/host_a2d}}

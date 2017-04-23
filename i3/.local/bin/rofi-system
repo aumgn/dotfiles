@@ -1,0 +1,46 @@
+#! /usr/bin/bash
+
+rofi_prompt () {
+    echo "$2" | rofi -no-levenshtein-sort -sep '|' -dmenu -p "$1 "
+}
+
+input=$(rofi_prompt '!' "Lock|Close session|Reboot|Poweroff")
+
+case $input in
+    "Lock")
+        ctl lock
+        ;;
+
+    "Close session")
+	input2=$(rofi_prompt "Do you really want to close the session ?" "Yes|No")
+        case $input2 in
+            "Yes")
+                ctl logout 
+                ;;
+            "No")
+                ;;
+        esac
+        ;;
+
+    "Reboot")
+	input2=$(rofi_prompt "Do you really want to reboot ?" "Yes|No")
+        case $input2 in
+            "Yes")
+                ctl reboot
+                ;;
+            "No")
+                ;;
+        esac
+        ;;
+
+    "Poweroff")
+	input2=$(rofi_prompt "Do you really want to shutdown ?" "Yes|No")
+        case $input2 in
+            "Yes")
+                ctl shutdown
+                ;;
+            "No")
+                ;;
+        esac
+        ;;
+esac
