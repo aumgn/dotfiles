@@ -5,6 +5,7 @@ source ~/.config/base/environment
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+source ~/.config/bash/termite
 source ~/.config/bash/prompt
 source ~/.local/share/shell/z/z.sh
 
