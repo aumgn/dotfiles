@@ -1,0 +1,2 @@
+--ignore=.*\.dot_template
+--ignore=.*\.dot_partial
