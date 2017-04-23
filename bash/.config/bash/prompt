@@ -41,7 +41,7 @@ if [[ "$TERM" != dumb ]]; then
         local color_reset="\[$(tput sgr0)\]"
 
         local right_size=$(echo "$pwd$status$status_symbol" | wc -c)
-        local moveright="\[$(tput cuf $(( $COLUMNS - $right_size - 1 )))\]"
+        local moveright="\[$(tput cuf $(( $COLUMNS - $right_size + 1 )))\]"
 
         local sc="\[$(tput sc)\]"
         local rc="\[$(tput rc)\]"
@@ -49,7 +49,7 @@ if [[ "$TERM" != dumb ]]; then
         local left="${status_color}${aumgn_prompt_host}${aumgn_prompt_symbol}${color_reset} "
         local right="${color_pwd}\[${pwd}\]${color_reset}\[ \]${status_color}\[${status}${status_symbol}\]${color_reset}"
 
-        PS1="${left}${sc}${moveright}${right}${rc}"
+        PS1="${sc}${moveright}${right}${rc}${left}"
 
 	aumgn_title
     }
