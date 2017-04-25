@@ -40,8 +40,9 @@ if [[ "$TERM" != dumb ]]; then
         local color_pwd="\[$(tput setaf 8)\]"
         local color_reset="\[$(tput sgr0)\]"
 
+        local cols=$(tput cols)
         local right_size=$(echo "$pwd$status$status_symbol" | wc -c)
-        local moveright="\[$(tput cuf $(( $COLUMNS - $right_size + 1 )))\]"
+        local moveright="\[$(tput cuf $(( $cols - $right_size + 1 )))\]"
 
         local sc="\[$(tput sc)\]"
         local rc="\[$(tput rc)\]"

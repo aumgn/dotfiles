@@ -1,5 +1,3 @@
-export AUMGN_BASHRC_SOURCE=yes
-
 source ~/.config/base/environment
 
 # If not running interactively, don't do anything
