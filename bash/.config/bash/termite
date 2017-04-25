@@ -1,8 +1,5 @@
 if [[ "$TERM" == xterm-termite ]]; then
     if ! tput longname >/dev/null 2>&1; then
-        export TERM=xterm-256colors
-        if ! tput longname >/dev/null 2>&1; then
-            TERM=xterm
-        fi
+        export TERMINFO=~/.config/termite/terminfo
     fi
 fi
