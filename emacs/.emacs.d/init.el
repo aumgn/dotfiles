@@ -12,10 +12,12 @@
 (aumgn/load "evil")
 (aumgn/load "ivy")
 (aumgn/load "company")
+(aumgn/load "yasnippet")
+(aumgn/load "magit")
 
 ;
 (aumgn/load "org")
-(aumgn/load "magit")
+; (aumgn/load "latex")
 (aumgn/load "shell")
 (aumgn/load "ess")
 (aumgn/load "gtags")

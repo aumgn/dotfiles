@@ -32,6 +32,7 @@
   (define-key aumgn/org-mode-map "x" 'org-babel-execute-maybe)
   (define-key aumgn/org-mode-map "X" 'org-babel-execute-buffer)
   (define-key aumgn/org-mode-map "t" 'org-babel-tangle)
+  (define-key aumgn/org-mode-map "r" 'org-babel-remove-result)
 
   (org-babel-do-load-languages
    'org-babel-load-languages
