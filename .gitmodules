@@ -16,3 +16,6 @@
 [submodule "zsh/.local/share/zsh/zsh-autosuggestions"]
 	path = zsh/.local/share/zsh/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "uchromium/.local/share/inoxunpack"]
+	path = uchromium/.local/share/inoxunpack
+	url = https://github.com/gcarq/inoxunpack

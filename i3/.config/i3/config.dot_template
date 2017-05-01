@@ -132,45 +132,21 @@ bindsym $mod+d            exec rofi -show run
 bindsym $mod+Return       exec termite
 bindsym $mod+BackSpace    exec eg
 bindsym $mod+Menu         exec eg
+
 {{#user_aumgn}}
 bindsym $mod+e            exec termite -t ranger -e ranger
 bindsym $mod+Shift+e      exec thunar
+
+bindsym $mod+n            exec uchromium
+bindsym $mod+Shift+n      exec uchromium --incognito
 {{/user_aumgn}}
+
 {{^user_aumgn}}
 bindsym $mod+e            exec thunar
+
+bindsym $mod+Mod1+n       exec google-chrome-stable
+bindsym $mod+Mod1+Shift+n exec google-chrome-stable --incognito
 {{/user_aumgn}}
-
-{{#user_nan}}
-
-  {{#host_a2d}}
-    bindsym $mod+n exec google-chrome-stable
-    bindsym $mod+Shift+n exec google-chrome-stable --incognito
-  {{/host_a2d}}
-
-  {{^host_a2d}}
-    bindsym $mod+n exec chromium
-    bindsym $mod+Shift+n exec chromium --incognito
-  {{/host_a2d}}
-
-  bindsym $mod+Mod1+n exec firefox
-  bindsym $mod+Mod1+Shift+n exec firefox -profile .mozilla/firefox/aumgn --private-window
-{{/user_nan}}
-
-{{^user_nan}}
-  bindsym $mod+n exec firefox -profile .mozilla/firefox/aumgn
-  bindsym $mod+Shift+n exec firefox -profile .mozilla/firefox/aumgn --private-window
-
-  {{#host_a2d}}
-    bindsym $mod+Mod1+n exec google-chrome-stable
-    bindsym $mod+Mod1+Shift+n exec google-chrome-stable --incognito
-  {{/host_a2d}}
-
-  {{^host_a2d}}
-    bindsym $mod+Mod1+n exec chromium
-    bindsym $mod+Mod1+Shift+n exec chromium --incognito
-  {{/host_a2d}}
-
-{{/user_nan}}
 
 ## Audio
 bindsym XF86AudioMute        exec ctl speakers toggle
