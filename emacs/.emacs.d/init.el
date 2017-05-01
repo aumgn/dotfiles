@@ -20,6 +20,7 @@
 ; (aumgn/load "latex")
 (aumgn/load "shell")
 (aumgn/load "ess")
+(aumgn/load "graphviz")
 (aumgn/load "gtags")
 
 (load custom-file :noerror)
