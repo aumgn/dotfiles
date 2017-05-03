@@ -1,0 +1,24 @@
+#! /bin/bash
+
+make() {
+    dotfiles=$HOME/.dotfiles
+    base=$dotfiles/base
+
+    for template in $(find $dotfiles -name *.dot_template); do
+	pushd $(dirname $template) >/dev/null
+	file=$(basename $template .dot_template)
+	echo "Creating \"$PWD/$file\""
+	$base/.local/bin/mo --source=$base/.config/base/mo.env $template > $file
+	popd >/dev/null
+    done
+}
+
+case "$1" in
+    make)
+	make
+    ;;
+    *)
+	echo "Unknown command $1"
+	exit 127
+    ;;
+esac
