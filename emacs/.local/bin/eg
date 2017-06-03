@@ -1,4 +1,8 @@
 #!/bin/sh
 
-emacsclient -a '' -c "$@"
+if systemctl --user is-enabled emacs 1>/dev/null 2>&1; then
+   emacsclient -c "$@"
+else
+   emacs "$@"
+fi
 
