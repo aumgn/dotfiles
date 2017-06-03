@@ -8,6 +8,8 @@ if [[ $TERM == "dumb" ]]; then
        return
 fi
 
+source ~/.config/base/environment
+
 # Keybindings
 bindkey -e
 bindkey \^U backward-kill-line
