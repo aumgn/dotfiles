@@ -24,9 +24,21 @@ gen_ssh_config() {
     fi
 }
 
-case "$1" in
+keygen() {
+    host=$1
+    mkdir -p ~/.ssh/keys
+    ssh-keygen -t rsa -f ~/.ssh/keys/$host -C $USER@$HOSTNAME:$host
+    chmod -R go-rwx ~/.ssh
+}
+
+command=$1
+shift
+case "$command" in
     gen)
-        gen_ssh_config
-    ;;
+        gen_ssh_config "$@"
+	;;
+    keygen)
+	keygen "$@"
+        ;;
 esac
 
