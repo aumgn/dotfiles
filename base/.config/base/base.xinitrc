@@ -1,9 +1,4 @@
 source ~/.config/base/environment
-export HOST=$(cat /etc/hostname)
-if [[ "$HOST" == a2d ]]; then
-    export LEFT_MONITOR=HDMI-0
-    export RIGHT_MONITOR=DVI-D-0
-fi
 
 numlockx on &
 for xresources in ~/.config/*/Xresources; do
@@ -35,6 +30,9 @@ elif [[ "$HOST" == a2l ]]; then
     setxkbmap -layout fr -option caps:escape
     pulseaudio --start
 elif [[ "$HOST" == a2e ]]; then
+    xrandr --output $LEFT_MONITOR --primary
+    xrandr --output $LEFT_MONITOR --left-of $RIGHT_MONITOR
+
     setxkbmap -layout fr -option caps:escape
 fi
 

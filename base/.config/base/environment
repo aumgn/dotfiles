@@ -11,3 +11,11 @@ export EDITOR=et
 export VISUAL=eg
 
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+
+if [[ "$HOST" == a2d ]]; then
+    export LEFT_MONITOR=HDMI-0
+    export RIGHT_MONITOR=DVI-D-0
+elif [[ "$HOST" == a2e ]]; then
+    export LEFT_MONITOR=DVI-I-2
+    export RIGHT_MONITOR=DVI-I-1
+fi
