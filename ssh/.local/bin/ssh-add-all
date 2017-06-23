@@ -1,3 +1,5 @@
 #! /bin/bash
 
+ssh-add -D
 ssh-add $(find ~/.ssh/keys/ -type f ! -name '*.pub')
+
