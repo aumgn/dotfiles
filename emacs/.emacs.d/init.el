@@ -19,6 +19,7 @@
 (aumgn/load "org")
 ; (aumgn/load "latex")
 (aumgn/load "shell")
+(aumgn/load "yaml")
 (aumgn/load "ess")
 (aumgn/load "graphviz")
 (aumgn/load "gtags")
