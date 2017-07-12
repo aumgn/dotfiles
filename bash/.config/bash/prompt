@@ -3,7 +3,7 @@ export AUMGN_PROMPT_HOST
 
 if [[ "$TERM" != dumb ]]; then
     aumgn_title() {
-	echo -ne "\033]2;bash@$AUMGN_PROMPT_HOST ❯\007"
+	      echo -ne "\033]2;bash@$AUMGN_PROMPT_HOST ❯\007"
     }
 
     aumgn_prompt_init() {
@@ -45,7 +45,7 @@ if [[ "$TERM" != dumb ]]; then
         local rc="\[$(tput rc)\]"
 
         local first="${status_color}\[${status}\]${color_reset}${color_pwd}\[${pwd}\]${color_reset}"
-        local second="${status_color}${aumgn_prompt_host}${aumgn_prompt_symbol}${color_reset}\[ \]"
+        local second="${status_color}${aumgn_prompt_host}${aumgn_prompt_symbol}${color_reset} "
 
         PS1="${first}\n${second}"
 
