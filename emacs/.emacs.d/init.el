@@ -16,6 +16,7 @@
 (aumgn/load "magit")
 
 ;
+(aumgn/load "c")
 (aumgn/load "org")
 ; (aumgn/load "latex")
 (aumgn/load "shell")
