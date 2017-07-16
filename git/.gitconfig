@@ -3,7 +3,7 @@
    name = aumgn
 
 [core]
-   editor = emacsclient -a '' -c
+   editor = emacsclient -a '' -nw
    excludesfile = ~/.gitignore_global
    autocrlf = input
    safecrlf = false
