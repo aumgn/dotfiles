@@ -30,30 +30,27 @@ if [[ "$TERM" != dumb ]]; then
         if [[ $status -eq 0 ]]; then
             local status=""
             local status_color="\[$(tput setaf 2)\]"
-            local status_symbol="✔"
         else
             local status="$status "
             local status_color="\[$(tput setaf 1)\]"
-            local status_symbol="✘"
         fi
-
         local color_pwd="\[$(tput setaf 8)\]"
         local color_reset="\[$(tput sgr0)\]"
 
         local cols=$(tput cols)
-        local right_size=$(echo "$pwd$status$status_symbol" | wc -c)
+        local right_size=$(echo "$status" | wc -c)
         local moveright="\[$(tput cuf $(( $cols - $right_size + 1 )))\]"
 
         local sc="\[$(tput sc)\]"
         local rc="\[$(tput rc)\]"
 
-        local left="${status_color}${aumgn_prompt_host}${aumgn_prompt_symbol}${color_reset} "
-        local right="${color_pwd}\[${pwd}\]${color_reset}\[ \]${status_color}\[${status}${status_symbol}\]${color_reset}"
+        local first="${status_color}\[${status}\]${color_reset}${color_pwd}\[${pwd}\]${color_reset}"
+        local second="${status_color}${aumgn_prompt_host}${aumgn_prompt_symbol}${color_reset}\[ \]"
 
-        PS1="${sc}${moveright}${right}${rc}${left}"
+        PS1="${first}\n${second}"
 
 	aumgn_title
     }
 
-    aumgn_prompt_init "$1"
+    aumgn_prompt_init
 fi
