@@ -7,3 +7,5 @@ i3/.config/i3/status_config
 termite/.config/termite/config
 dunst/.config/dunst/dunstrc
 
+pushover/.config/pushover/token
+pushover/.config/pushover/user
