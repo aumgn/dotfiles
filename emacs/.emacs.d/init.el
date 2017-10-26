@@ -9,11 +9,13 @@
 
 ;
 (aumgn/load "interface")
-(aumgn/load "evil")
+; (aumgn/load "evil")
+(aumgn/load "escape")
+(aumgn/load "multiple-cursors")
 (aumgn/load "ivy")
 (aumgn/load "company")
-(aumgn/load "yasnippet")
-(aumgn/load "magit")
+; (aumgn/load "yasnippet")
+; (aumgn/load "magit")
 
 ;
 (aumgn/load "c")
@@ -21,6 +23,7 @@
 ; (aumgn/load "latex")
 (aumgn/load "shell")
 (aumgn/load "yaml")
+(aumgn/load "python")
 (aumgn/load "ess")
 (aumgn/load "graphviz")
 (aumgn/load "gtags")

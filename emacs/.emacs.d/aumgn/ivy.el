@@ -7,7 +7,5 @@
 	  (t . ivy--regex-fuzzy)))
   :config
   (ivy-mode 1)
-  (dim-minor-name 'ivy-mode "")
-  (define-key evil-normal-state-map "/" #'swiper)
-  (define-key aumgn/space-map "/" #'counsel-ag))
+  (dim-minor-name 'ivy-mode ""))
 

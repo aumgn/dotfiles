@@ -20,30 +20,7 @@
 	  ("n" "Notes" entry (file+headline  "~/.org/notes.org"  "General") "* %T %?\n\n  %i\n" :prepend t)))
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
 
-  (define-key aumgn/space-map "a" #'org-agenda)
-  (define-key aumgn/space-map "c" #'org-capture)
-
-  (define-prefix-command 'aumgn/org-mode-map)
-  (evil-define-key 'normal org-mode-map (kbd "'") 'aumgn/org-mode-map)
-  (evil-define-key 'motion org-mode-map (kbd "'") 'aumgn/org-mode-map)
-  (define-key aumgn/org-mode-map "," 'org-babel-previous-src-block)
-  (define-key aumgn/org-mode-map "." 'org-babel-next-src-block)
-  (define-key aumgn/org-mode-map "p" 'org-set-property)
-  (define-key aumgn/org-mode-map "x" 'org-babel-execute-maybe)
-  (define-key aumgn/org-mode-map "X" 'org-babel-execute-buffer)
-  (define-key aumgn/org-mode-map "t" 'org-babel-tangle)
-  (define-key aumgn/org-mode-map "r" 'org-babel-remove-result)
-
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((sh . t)
      (sql . t))))
-
-
-(use-package org-evil)
-(use-package org-bullets
-  :config
-  (defun aumgn/org-bullets-hook ()
-    (org-bullets-mode 1))
-  (add-hook 'org-mode-hook 'aumgn/org-bullets-hook))
-

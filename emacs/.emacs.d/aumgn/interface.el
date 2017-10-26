@@ -12,25 +12,20 @@
   :config
   (load-theme 'base16-default-dark t))
 
-(use-package linum-relative
-  :config
-  (setq linum-relative-current-symbol "")
-  (linum-relative-global-mode))
-
 ; Found on [[https://stackoverflow.com/a/22971471]]
 (defun aumgn/mode-line-fill (face reserve)
   "Return empty space using FACE and leaving RESERVE space on the right."
   (unless reserve
     (setq reserve 20))
-  (when (and window-system (eq 'right (get-scroll-bar-mode)))
+  (when (and window-system (eq 'right (get-scroll-bar-mode))
     (setq reserve (- reserve 3)))
   (propertize " "
               'display `((space :align-to (- (+ right right-fringe right-margin) ,reserve)))
-              'face face))
+              'face face)))
+
 
 (setq-default mode-line-format
 	      (list
-	       '(:eval evil-mode-line-tag)
 	       ;; the buffer name; the file name as a tool tip
 	       '(:eval (propertize "  %b" 'face '((:background "forest green" :foreground "black"))))
 

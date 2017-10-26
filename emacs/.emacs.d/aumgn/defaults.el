@@ -21,3 +21,5 @@
 (setq-default show-trailing-whitespace t)
 (set-face-attribute 'trailing-whitespace nil :background "LightSalmon1" :foreground "black")
 
+(if (display-graphic-p)
+    (global-unset-key (kbd "C-z")))
