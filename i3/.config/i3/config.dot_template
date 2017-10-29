@@ -152,8 +152,8 @@ bindsym $mod+Menu         exec eg
 bindsym $mod+e            exec termite -t ranger -e ranger
 bindsym $mod+Shift+e      exec thunar
 
-bindsym $mod+n            exec uchromium
-bindsym $mod+Shift+n      exec uchromium --incognito
+bindsym $mod+n            exec firefox-developer -profile .mozilla/firefox/aumgn
+bindsym $mod+Shift+n      exec firefox-developer --private-window
 {{/user_aumgn}}
 
 {{^user_aumgn}}
@@ -280,7 +280,7 @@ exec --no-startup-id feh --randomize --bg-fill ~/.local/share/wallpapers/redpand
 {{/user_nan}}
 
 {{^user_nan}}
-exec --no-startup-id feh --randomize --bg-fill ~/.local/share/wallpapers/*
+# exec --no-startup-id feh --randomize --bg-fill ~/.local/share/wallpapers/*
 {{/user_nan}}
 
 {{#host_a2d}}
