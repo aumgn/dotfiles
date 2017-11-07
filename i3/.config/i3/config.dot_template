@@ -153,7 +153,7 @@ bindsym $mod+e            exec termite -t ranger -e ranger
 bindsym $mod+Shift+e      exec thunar
 
 bindsym $mod+n            exec firefox-developer -profile .mozilla/firefox/aumgn
-bindsym $mod+Shift+n      exec firefox-developer --private-window
+bindsym $mod+Shift+n      exec rofi-firefox
 {{/user_aumgn}}
 
 {{^user_aumgn}}

@@ -1,0 +1,17 @@
+#! /usr/bin/bash
+
+rofi_prompt () {
+    echo "$2" | rofi -no-levenshtein-sort -sep ' ' -dmenu -p "$1 "
+}
+
+profiles=$(ag Name ~/.mozilla/firefox/profiles.ini | cut -d'=' -f2 | xargs)
+input=$(rofi_prompt '@' "$profiles Private")
+
+echo $profiles
+echo $input
+if [[ " $profiles " =~ " $input " ]]; then
+    firefox-developer --new-instance -P "$input"
+elif [[ "$input" = "Private" ]]; then
+    firefox-developer --private-window -P dev-edition-default
+fi
+
