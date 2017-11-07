@@ -2,6 +2,7 @@
 
 case "$1" in
     lock)       i3lock -c '#222222' -f;;
+    logout)     i3-msg "exit";;
     reboot)     systemctl reboot -i;;
     shutdown)   systemctl poweroff -i;;
     *)          echo "Unknown subcommand $1";;
