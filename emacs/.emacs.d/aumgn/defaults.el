@@ -8,7 +8,8 @@
 (menu-bar-mode -1)
 (show-paren-mode 1)
 (column-number-mode)
-(global-hl-line-mode)
+(if (display-graphic-p)
+  (global-hl-line-mode))
 
 (setq inhibit-startup-message t
       initial-scratch-message nil
