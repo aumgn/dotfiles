@@ -1,18 +1,11 @@
-#! /usr/bin/python3
+secret=$(cat ~/.ntfy)
+message=$*
+level=5
 
-from sys      import argv
-from os.path  import expanduser
-from requests import post
+curl -X POST \
+     -d "secret=$secret" \
+     -d "message=$message" \
+     -d "level=$level" \
+     https://api.pushjet.io/message
 
-home = expanduser('~')
-secret = None
-with open(home + '/.ntfy') as f:
-    secret = f.read().rstrip()
 
-data = {
-  'message': ' '.join(argv[1:]),
-  'level': 5,
-  'secret': secret,
-}
-
-resp = post('https://api.pushjet.io/message', data=data).json()
