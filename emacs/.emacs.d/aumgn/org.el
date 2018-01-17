@@ -20,7 +20,10 @@
 	  ("n" "Notes" entry (file+headline  "~/.org/notes.org"  "General") "* %T %?\n\n  %i\n" :prepend t)))
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
 
+  ; (define-key org-mode-map (kbd "C-c C-r") 'org-babel-remove-result)
+
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((sh . t)
-     (sql . t))))
+     (sql . t)
+     (octave . t))))

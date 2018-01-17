@@ -11,6 +11,8 @@
 (if (display-graphic-p)
   (global-hl-line-mode))
 
+
+
 (setq inhibit-startup-message t
       initial-scratch-message nil
       vc-follow-symlinks t
@@ -21,6 +23,9 @@
 
 (setq-default show-trailing-whitespace t)
 (set-face-attribute 'trailing-whitespace nil :background "LightSalmon1" :foreground "black")
+
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
 
 (if (display-graphic-p)
     (global-unset-key (kbd "C-z")))
