@@ -10,8 +10,8 @@ input=$(rofi_prompt '@' "$profiles Private")
 echo $profiles
 echo $input
 if [[ " $profiles " =~ " $input " ]]; then
-    firefox-developer --new-instance -P "$input"
+    firefox-developer-edition --new-instance -P "$input"
 elif [[ "$input" = "Private" ]]; then
-    firefox-developer --private-window -P dev-edition-default
+    firefox-developer-edition --private-window -P dev-edition-default
 fi
 

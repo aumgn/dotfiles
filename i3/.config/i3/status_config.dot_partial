@@ -6,56 +6,56 @@ general {
 }
 
 volume a2d_hdmi {
-        format = "H %volume"
-        format_muted = "H"
+        format = "H %volume"
+        format_muted = "H"
         device = "pulse:alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1"
 }
 
 volume a2d_xonar {
-        format = "X %volume"
-        format_muted = "X"
+        format = "X %volume"
+        format_muted = "X"
         device = "pulse:alsa_output.pci-0000_05_04.0.analog-stereo"
 }
 
 volume a2l_master {
-        format = " %volume"
-        format_muted = ""
+        format = "V %volume"
+        format_muted = "V"
         device = "pulse:alsa_output.pci-0000_00_1b.0.analog-stereo"
 }
 
 ethernet _first_ {
-        format_up = "  %ip"
-        format_down = ""
+        format_up = "Eth %ip"
+        format_down = "Eth"
 }
 
 battery 0 {
-	format = " %percentage (%remaining)"
+	format = "Bat %percentage (%remaining)"
 	format_down = "No battery"
-	status_chr = "⚇ CHR"
-        status_bat = "⚡ BAT"
-        status_full = "☻ FULL"
+	status_chr = "CHR"
+        status_bat = "BAT"
+        status_full = "FULL"
         path = "/sys/class/power_supply/BAT%d/uevent"
 	low_threshold = 10
 }
 
 wireless _first_ {
-	format_up = "  %quality (%essid)"
-	format_down = ""
+	format_up = "Wifi %quality (%essid)"
+	format_down = "Wifi"
 }
 
 disk / {
-        format = " / %free"
+        format = "/ %free"
 }
 
 cpu_usage {
-        format = " %usage"
+        format = "CPU %usage"
 }
 
 cpu_temperature 0 {
-        format = " %degrees°C"
+        format = "%degrees°C"
         path = "/sys/class/hwmon/hwmon0/temp1_input"
 }
 
 tztime datetime {
-	format = " %d %b   %H:%M      {{USER}}  "
+	format = " %d %b  %H:%M     @{{USER}}"
 }

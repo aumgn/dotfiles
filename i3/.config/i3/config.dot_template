@@ -152,7 +152,7 @@ bindsym $mod+Menu         exec eg
 bindsym $mod+e            exec termite -t ranger -e ranger
 bindsym $mod+Shift+e      exec thunar
 
-bindsym $mod+n            exec firefox-developer -profile .mozilla/firefox/aumgn
+bindsym $mod+n            exec firefox-developer-edition -profile .mozilla/firefox/aumgn
 bindsym $mod+Shift+n      exec rofi-firefox
 {{/user_aumgn}}
 
@@ -164,6 +164,10 @@ bindsym $mod+Mod1+Shift+n exec google-chrome-stable --incognito
 {{/user_aumgn}}
 
 ## Audio
+{{#host_a2d}}
+bindsym $mod+comma           exec pamvsink2 HDMI
+bindsym $mod+period          exec pamvsink2 Xonar
+{{/host_a2d}}
 bindsym XF86AudioMute        exec ctl speakers toggle
 bindsym $mod+F1              exec ctl speakers toggle
 bindsym XF86AudioLowerVolume exec ctl speakers down
@@ -213,7 +217,6 @@ bindsym $mod+bracketleft  exec pamvsink $(pasinkidx 'HDMI')
 bindsym $mod+bracketright exec pamvsink $(pasinkidx 'Xonar')
 {{/host_a2d}}
 
-{{^host_a2d}}
 ## Bars
 bar {
       {{#host_a2d}}
@@ -265,7 +268,6 @@ bar {
       }
 }
 {{/host_a2d}}
-{{/host_a2d}}
 
 ## <class>                <border>    <backgr.>   <text>      <indic.>    <child_border>
 client.focused            {{base06}}  {{base06}}  {{base00}}  {{base01}}
@@ -284,5 +286,6 @@ exec --no-startup-id feh --randomize --bg-fill ~/.local/share/wallpapers/redpand
 {{/user_nan}}
 
 {{#host_a2d}}
-exec_always --no-startup-id ~/.config/polybar/launch
+# exec_always --no-startup-id ~/.config/polybar/launch
+exec --no-startup-id pasystray
 {{/host_a2d}}
