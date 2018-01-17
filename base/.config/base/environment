@@ -19,3 +19,5 @@ elif [[ "$HOST" == a2e ]]; then
     export LEFT_MONITOR=DVI-I-2
     export RIGHT_MONITOR=DVI-I-1
 fi
+
+export BENCH_PATH=~/Projects/erods/bench
