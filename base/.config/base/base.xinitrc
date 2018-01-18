@@ -37,5 +37,5 @@ elif [[ "$HOST" == a2e ]]; then
 fi
 
 for xinitrc in ~/.config/*/xinitrc; do
-    . $xinitrc
+   . $xinitrc
 done
