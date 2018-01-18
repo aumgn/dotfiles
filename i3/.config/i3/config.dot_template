@@ -159,8 +159,8 @@ bindsym $mod+Shift+n      exec rofi-firefox
 {{^user_aumgn}}
 bindsym $mod+e            exec thunar
 
-bindsym $mod+Mod1+n       exec google-chrome-stable
-bindsym $mod+Mod1+Shift+n exec google-chrome-stable --incognito
+bindsym $mod+n       exec google-chrome-stable
+bindsym $mod+Shift+n exec google-chrome-stable --incognito
 {{/user_aumgn}}
 
 ## Audio
