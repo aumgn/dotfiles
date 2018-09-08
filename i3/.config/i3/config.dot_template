@@ -165,8 +165,10 @@ bindsym $mod+Shift+n exec google-chrome-stable --incognito
 
 ## Audio
 {{#host_a2d}}
-bindsym $mod+comma           exec pamvsink2 HDMI
-bindsym $mod+period          exec pamvsink2 Xonar
+bindsym $mod+comma           exec pamvsink2 speakers
+bindsym $mod+period          exec pamvsink2 headphones
+bindsym $mod+Shift+comma     exec pamvloopback speakers
+bindsym $mod+Shift+period    exec pamvloopback headphones
 {{/host_a2d}}
 bindsym XF86AudioMute        exec ctl speakers toggle
 bindsym $mod+F1              exec ctl speakers toggle
@@ -288,4 +290,7 @@ exec --no-startup-id feh --randomize --bg-fill ~/.local/share/wallpapers/redpand
 {{#host_a2d}}
 # exec_always --no-startup-id ~/.config/polybar/launch
 exec --no-startup-id pasystray
+exec --no-startup-id blueman-applet
+exec --no-startup-id pulseaudio -k
+exec --no-startup-id pulseaudio -D
 {{/host_a2d}}

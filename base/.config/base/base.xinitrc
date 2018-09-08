@@ -21,6 +21,7 @@ if [[ "$HOST" == a2d ]]; then
 
     setxkbmap -layout gb -variant extd -option caps:escape
     pulseaudio --start
+    # pacmd load-module module-loopback source=4 latency_msec=1
 elif [[ "$HOST" == a2l ]]; then
     xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
     xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2
