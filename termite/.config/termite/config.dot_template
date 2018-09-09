@@ -1,5 +1,10 @@
 [options]
+{{#host_a2w}}
+font = Inconsolata 13
+{{/host_a2w}}
+{{^host_a2w}}
 font = Inconsolata 11
+{{/host_a2w}}
 allow_bold = false
 
 [colors]

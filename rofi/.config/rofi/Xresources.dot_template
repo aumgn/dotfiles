@@ -2,7 +2,12 @@
 
 rofi.modi: run,ssh
 rofi.terminal: termite
+{{#host_a2w}}
+rofi.font: Inconsolata 32
+{{/host_a2w}}
+{{^host_a2w}}
 rofi.font: Inconsolata 14
+{{/host_a2w}}
 
 rofi.display-run:
 rofi.location: 0

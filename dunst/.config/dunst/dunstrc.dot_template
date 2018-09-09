@@ -1,5 +1,10 @@
 [global]
+    {{#host_a2w}}
+    font = Inconsolata 32
+    {{/host_a2w}}
+    {{^host_a2w}}
     font = Inconsolata 12
+    {{/host_a2w}}
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:

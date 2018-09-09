@@ -20,5 +20,10 @@ elif [[ "$HOST" == a2e ]]; then
     export RIGHT_MONITOR=DVI-I-1
 fi
 
+if which ruby >/dev/null 2>&1; then
+  export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+  export GEM_HOME=$HOME/.gem
+fi
+
 export BENCH_PATH=~/Source/openwhisk/bench
 

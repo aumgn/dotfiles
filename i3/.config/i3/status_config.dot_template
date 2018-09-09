@@ -1,5 +1,25 @@
 ## UTF-8 : ß
 
+{{#host_a2w}}
+cpu_temperature x86_pkg_temp {
+  format = "%degrees°C"
+  path = "/sys/class/thermal/thermal_zone10/temp"
+}
+
+cpu_temperature pch_skylake {
+  format = "%degrees°C"
+  path = "/sys/class/thermal/thermal_zone7/temp"
+}
+
+order += "battery 0"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "cpu_usage"
+order += "cpu_temperature x86_pkg_temp"
+order += "cpu_temperature pch_skylake"
+order += "tztime datetime"
+{{/host_a2w}}
+
 {{#host_a2l}}
 order += "battery 0"
 order += "wireless _first_"
@@ -8,7 +28,6 @@ order += "cpu_usage"
 order += "cpu_temperature 0"
 order += "volume a2l_master"
 order += "tztime datetime"
-order += "tztime user"
 {{/host_a2l}}
 
 {{#host_a2e}}
@@ -19,4 +38,3 @@ order += "tztime datetime"
 {{/host_a2e}}
 
 {{> status_config.dot_partial}}
-

@@ -1,10 +1,26 @@
 #! /bin/bash
 
+notify_brightness() {
+    value=$(xbacklight | cut -d'.' -f1)
+    notify-send "Brightness" "Set brightness to $value"
+}
+
+brightness() {
 case "$1" in
+    ++)  xbacklight + 10; notify_brightness;;
+    --)  xbacklight - 10; notify_brightness;;
+    +)   xbacklight +  1; notify_brightness;;
+    -)   xbacklight -  1; notify_brightness;;
+    *)         echo "Unknown subcommand 'brightness $1'";;
+esac
+}
+
+case "$1" in
+    brightness)  shift; brightness $*;;
     lock)       i3lock -c '#222222' -f;;
-    logout)     i2-msg "exit";;
+    logout)     i3-msg "exit";;
     reboot)     systemctl reboot -i;;
     shutdown)   systemctl poweroff -i;;
-    *)          echo "Unknown subcommand $1";;
+    *)          echo "Unknown subcommand '$1'";;
 esac
 

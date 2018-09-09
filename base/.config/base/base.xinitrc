@@ -21,7 +21,18 @@ if [[ "$HOST" == a2d ]]; then
 
     setxkbmap -layout gb -variant extd -option caps:escape
     pulseaudio --start
-    # pacmd load-module module-loopback source=4 latency_msec=1
+
+elif [[ "$HOST" == a2w ]]; then
+    xrandr --dpi 192
+    export GDK_SCALE=2
+    export QT_AUTO_SCREEN_SCALE_FACTOR=1
+    export QT_DEVICE_PIXEL_RATIO=2
+    export _JAVA_OPTIONS="$_JAVA_OPTIONS -Dsun.java2d.uiScale=2"
+
+    xinput set-prop 'DLL07BF:01 06CB:7A13 Touchpad' 'libinput Tapping Enabled' 1
+    xinput set-prop 'DLL07BF:01 06CB:7A13 Touchpad' 'libinput Tapping Button Mapping Enabled' 0 1
+    setxkbmap -layout fr -option caps:escape
+
 elif [[ "$HOST" == a2l ]]; then
     xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
     xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2
@@ -30,6 +41,7 @@ elif [[ "$HOST" == a2l ]]; then
 
     setxkbmap -layout fr -option caps:escape
     pulseaudio --start
+
 elif [[ "$HOST" == a2e ]]; then
     xrandr --output $LEFT_MONITOR --primary
     xrandr --output $LEFT_MONITOR --left-of $RIGHT_MONITOR

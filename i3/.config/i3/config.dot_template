@@ -69,12 +69,10 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-{{#user_nan}}
 bindsym $mod+Left  focus left
 bindsym $mod+Down  focus down
 bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
-{{/user_nan}}
 
 bindsym $mod+q focus parent
 bindsym $mod+a focus child
@@ -85,12 +83,10 @@ bindsym $mod+$mod2+j move down
 bindsym $mod+$mod2+k move up
 bindsym $mod+$mod2+l move right
 
-{{#user_nan}}
 bindsym $mod+$mod2+Left  move left
 bindsym $mod+$mod2+Down  move down
 bindsym $mod+$mod2+Up    move up
 bindsym $mod+$mod2+Right move right
-{{/user_nan}}
 
 ## Switch to workspace
 bindsym $mod+1 workspace $w1
@@ -146,22 +142,30 @@ bindsym Mod1+F4 kill
 bindsym $mod+d            exec rofi -show run
 bindsym $mod+Return       exec termite
 bindsym $mod+BackSpace    exec eg
-bindsym $mod+Menu         exec eg
+bindsym $mod+e            exec thunar
 
 {{#user_aumgn}}
-bindsym $mod+e            exec termite -t ranger -e ranger
-bindsym $mod+Shift+e      exec thunar
-
-bindsym $mod+n            exec firefox-developer-edition -profile .mozilla/firefox/aumgn
+bindsym $mod+n            exec firefox-developer-edition --new-instance -P aumgn
 bindsym $mod+Shift+n      exec rofi-firefox
 {{/user_aumgn}}
 
-{{^user_aumgn}}
-bindsym $mod+e            exec thunar
+{{#host_a2w}}
+bindsym $mod+n            exec firefox-developer-edition --new-instance -P work
+bindsym $mod+Shift+n      exec rofi-firefox
+{{/host_a2w}}
 
+{{^host_a2w}}
+{{^user_aumgn}}
 bindsym $mod+n       exec google-chrome-stable
 bindsym $mod+Shift+n exec google-chrome-stable --incognito
 {{/user_aumgn}}
+{{/host_a2w}}
+
+## Backlight
+bindsym XF86MonBrightnessDown       exec ctl brightness --
+bindsym XF86MonBrightnessUp         exec ctl brightness ++
+bindsym Shift+XF86MonBrightnessDown exec ctl brightness -
+bindsym Shift+XF86MonBrightnessUp   exec ctl brightness +
 
 ## Audio
 {{#host_a2d}}
@@ -194,8 +198,8 @@ bindsym XF86TouchpadToggle exec touchpad-toggle
 bindsym $mod+p                  exec ctl lock
 bindsym $mod+Escape             exec rofi-system
 
-bindsym $mod+$mod2+c            exec dot-make; reload
-bindsym $mod+$mod2+r            exec dot-make; restart
+bindsym $mod+$mod2+c            exec dotfiles make; reload
+bindsym $mod+$mod2+r            exec dotfiles make; restart
 bindsym $mod+$mod2+$mod3+Home   exit
 
 ## Resize mode
@@ -294,3 +298,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id pulseaudio -k
 exec --no-startup-id pulseaudio -D
 {{/host_a2d}}
+
+{{#host_a2w}}
+exec ctl lock
+{{/host_a2w}}
