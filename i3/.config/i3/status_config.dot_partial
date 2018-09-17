@@ -39,7 +39,7 @@ battery 0 {
 }
 
 wireless _first_ {
-	format_up = "Wifi %quality (%essid)"
+	format_up = "Wifi %quality (%essid, %ip)"
 	format_down = "Wifi"
 }
 

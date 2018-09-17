@@ -17,7 +17,6 @@ set $w8 8
 set $w9 9
 set $w0 10
 
-{{#host_a2d}}
 workspace $w1 output {{LEFT_MONITOR}}
 workspace $w2 output {{LEFT_MONITOR}}
 workspace $w3 output {{LEFT_MONITOR}}
@@ -30,22 +29,6 @@ workspace $w9 output {{RIGHT_MONITOR}}
 workspace $w0 output {{RIGHT_MONITOR}}
 
 bindsym $mod+c move workspace to output right
-{{/host_a2d}}
-
-{{#host_a2e}}
-workspace $w1 output {{LEFT_MONITOR}}
-workspace $w2 output {{LEFT_MONITOR}}
-workspace $w3 output {{LEFT_MONITOR}}
-workspace $w4 output {{LEFT_MONITOR}}
-workspace $w5 output {{LEFT_MONITOR}}
-workspace $w6 output {{RIGHT_MONITOR}}
-workspace $w7 output {{RIGHT_MONITOR}}
-workspace $w8 output {{RIGHT_MONITOR}}
-workspace $w9 output {{RIGHT_MONITOR}}
-workspace $w0 output {{RIGHT_MONITOR}}
-
-bindsym $mod+c move workspace to output right
-{{/host_a2e}}
 
 new_window 1pixel
 workspace_layout default
