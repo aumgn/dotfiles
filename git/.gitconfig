@@ -1,6 +1,14 @@
-[user]
-   email = aumgn@free.fr
-   name = aumgn
+[includeIf "gitdir:~/.dotfiles/"]
+   path = ~/.gitconfig.perso
+[includeIf "gitdir:~/Source/perso/"]
+   path = ~/.gitconfig.perso
+[includeIf "gitdir:~/Source/scratch/"]
+   path = ~/.gitconfig.perso
+
+[includeIf "gitdir:~/Source/phd/"]
+   path = ~/.gitconfig.work
+[includeIf "gitdir:~/Source/enseignement/"]
+   path = ~/.gitconfig.work
 
 [core]
    editor = emacsclient -a '' -nw
