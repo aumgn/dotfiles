@@ -1,6 +1,6 @@
 [global]
     {{#host_a2w}}
-    font = Inconsolata 32
+    font = Inconsolata 28
     {{/host_a2w}}
     {{^host_a2w}}
     font = Inconsolata 12
@@ -81,7 +81,12 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
+    {{#host_a2w}}
+    geometry = "800x5-30+30"
+    {{/host_a2w}}
+    {{#host_a2w}}
     geometry = "300x5-30+30"
+    {{/host_a2w}}
 
     # Define the title of the windows spawned by dunst
     title = Dunst

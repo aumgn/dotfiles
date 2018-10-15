@@ -25,7 +25,7 @@ if [[ "$HOST" == a2d ]]; then
 elif [[ "$HOST" == a2w ]]; then
     xrandr --dpi 192
     export GDK_SCALE=2
-    export QT_AUTO_SCREEN_SCALE_FACTOR=1
+    export QT_SCALE_FACTOR=0.75
     export QT_DEVICE_PIXEL_RATIO=2
     export _JAVA_OPTIONS="$_JAVA_OPTIONS -Dsun.java2d.uiScale=2"
 

@@ -19,8 +19,8 @@ elif [[ "$HOST" == a2e ]]; then
     export LEFT_MONITOR=DVI-I-2
     export RIGHT_MONITOR=DVI-I-1
 elif [[ "$HOST" == a2w ]]; then
-    export LEFT_MONITOR=HDMI1
-    export RIGHT_MONITOR=DP1
+    export LEFT_MONITOR=eDP1
+    export RIGHT_MONITOR=HDMI1
 fi
 
 if which ruby >/dev/null 2>&1; then
