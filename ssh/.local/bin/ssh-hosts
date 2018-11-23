@@ -16,8 +16,9 @@ gen_ssh_config() {
         echo '' >> "$CONFIG"
     fi
 
-    if ls $HOSTSDIR/* >/dev/null 2>&1; then
-        for f in $HOSTSDIR/*; do
+    files=$(find ~/.ssh/hosts/ -type f)
+    if [[ -n "$files" ]]; then
+        for f in $files; do
             cat "$f" >> "$CONFIG"
             echo '' >> "$CONFIG"
         done
