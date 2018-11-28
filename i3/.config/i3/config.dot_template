@@ -199,6 +199,11 @@ mode "Resize" {
 bindsym $mod+r mode "Resize"
 
 {{#host_a2d}}
+for_window [instance="blueberry.py"] floating enable
+for_window [instance="blueberry.py"] resize grow width 220 px, move left 110 px
+for_window [instance="blueberry.py"] resize grow height 330 px, move up 165 px
+
+
 for_window [title="^cmus$"] move scratchpad
 bindsym $mod+numbersign [title="cmus"] scratchpad show
 
@@ -275,9 +280,8 @@ exec --no-startup-id feh --randomize --bg-fill ~/.local/share/wallpapers/redpand
 {{/user_nan}}
 
 {{#host_a2d}}
-# exec_always --no-startup-id ~/.config/polybar/launch
+exec --no-startup-id blueberry-tray
 exec --no-startup-id pasystray
-exec --no-startup-id blueman-applet
 exec --no-startup-id pulseaudio -k
 exec --no-startup-id pulseaudio -D
 {{/host_a2d}}
