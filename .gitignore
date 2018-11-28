@@ -1,3 +1,4 @@
+git/.gitconfig.d/*
 ssh/.ssh
 *.elc
 i3/.config/i3/config
