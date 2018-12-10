@@ -133,7 +133,7 @@ bindsym $mod+Shift+n      exec rofi-firefox
 {{/user_aumgn}}
 
 {{#host_a2w}}
-bindsym $mod+n            exec firefox-developer-edition --new-instance -P work
+bindsym $mod+n            exec firefox-developer-edition --new-instance -P ferreich
 bindsym $mod+Shift+n      exec rofi-firefox
 {{/host_a2w}}
 
