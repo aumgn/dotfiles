@@ -32,7 +32,6 @@ elif [[ "$HOST" == a2w ]]; then
     xinput set-prop 'DLL07BF:01 06CB:7A13 Touchpad' 'libinput Tapping Enabled' 1
     xinput set-prop 'DLL07BF:01 06CB:7A13 Touchpad' 'libinput Tapping Button Mapping Enabled' 0 1
     xinput set-prop "ELAN Touchscreen" "Device Enabled" 0
-    setxkbmap -layout fr -option caps:escape
 
 elif [[ "$HOST" == a2l ]]; then
     xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
