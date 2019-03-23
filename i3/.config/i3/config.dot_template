@@ -280,6 +280,7 @@ exec --no-startup-id feh --randomize --bg-fill ~/.local/share/wallpapers/redpand
 {{/user_nan}}
 
 {{#host_a2d}}
+exec --no-startup-id monitor-watch
 exec --no-startup-id blueberry-tray
 exec --no-startup-id pasystray
 exec --no-startup-id pulseaudio -k

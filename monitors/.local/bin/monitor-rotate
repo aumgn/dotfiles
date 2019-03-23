@@ -1,0 +1,10 @@
+#! /bin/bash
+
+rotation=$1
+if [[ "x$rotation" == "xportrait" ]]; then
+    xrandr --output DVI-D-0 --rotate right --output HDMI-0 --auto --right-of DVI-D-0
+elif [[ "x$rotation" == "xlandscape" ]]; then
+    xrandr --output DVI-D-0 --rotate normal --output HDMI-0 --auto --right-of DVI-D-0
+else
+    echo "Invalid parameter '$rotation'"
+fi

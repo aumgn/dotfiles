@@ -1,0 +1,34 @@
+#! /bin/bash
+
+DIR=$(dirname $(readlink -f $0))
+NV_EVENTS=$DIR/monitors/nv-monitor-events
+
+update_monitor() {
+    monitor=$1; shift
+
+    state=$(xrandr | ag $monitor | awk '{ print $2 }')
+    echo "  Monitor $monitor is in state $state"
+
+    if [[ $state == 'connected' ]]; then
+        echo "  => Running xrandr --output $monitor $@"
+        xrandr --output $monitor $@
+    elif [[ $state == 'disconnected' ]]; then
+        echo "  => Running xrandr --output $monitor --off"
+        xrandr --output $monitor --off
+    fi
+}
+
+update() {
+    echo "Updating monitors"
+    update_monitor DVI-D-0 --auto --left-of HDMI-0
+    update_monitor HDMI-0  --auto --right-of DVI-D-0
+    echo "Done"
+}
+
+run() {
+    $NV_EVENTS | while read l; do
+        update
+    done
+}
+
+run 1>/tmp/monitor-watch.log 2>/tmp/monitor-watch.err
