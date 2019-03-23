@@ -27,8 +27,8 @@ gen_ssh_config() {
 
 keygen() {
     host=$1
-    mkdir -p ~/.ssh/keys
-    ssh-keygen -t rsa -f ~/.ssh/keys/$host -C $USER@$HOSTNAME:$host
+    mkdir -p ~/.ssh/keys/$(dirname $host)
+    ssh-keygen -t rsa -f ~/.ssh/keys/$host -C $HOSTNAME:$host
     chmod -R go-rwx ~/.ssh
 }
 
