@@ -28,5 +28,9 @@ if which ruby >/dev/null 2>&1; then
   export GEM_HOME=$HOME/.gem
 fi
 
+if which cargo >/dev/null 2>&1; then
+  export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
 export BENCH_PATH=~/Source/openwhisk/bench
 export PATH=$BENCH_PATH/scripts/local:$PATH
