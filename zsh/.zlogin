@@ -1,2 +1,2 @@
 source ~/.config/base/environment
-source ~/.config/shell/login
+~/.config/a2dm/login

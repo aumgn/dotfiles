@@ -1,0 +1,8 @@
+source ~/.config/base/environment
+
+for auto in ~/.config/a2dm/auto/*; do
+    . $auto
+done
+
+exec $1
+

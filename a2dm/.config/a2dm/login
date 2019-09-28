@@ -1,0 +1,22 @@
+source ~/.config/base/environment
+
+if [[ -z $DISPLAY ]]; then
+    a2dm_start() {
+    	log=~/.local/log/a2dm/$XDG_VTNR.log
+    	mkdir -p $(dirname $log)
+
+        exec startx \
+            ~/.config/a2dm/start $1 \
+            -- :$XDG_VTNR vt$XDG_VTNR \
+            1>$log 2>&1
+    }
+
+    case $USER@$HOST:$XDG_VTNR in
+    chris@a2w:5)
+        a2dm_start ~/.config/a2dm/start.d/i3
+        ;;
+    aumgn@a2w:6)
+        a2dm_start ~/.config/a2dm/start.d/i3
+        ;;
+    esac
+fi
