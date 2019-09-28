@@ -118,8 +118,6 @@ bindsym $mod+$mod3+Next workspace next
 
 ## Kill
 bindsym $mod+w kill
-bindsym $mod+F4 kill
-bindsym Mod1+F4 kill
 
 ## Applications
 bindsym $mod+d            exec rofi -show run
@@ -128,13 +126,15 @@ bindsym $mod+BackSpace    exec eg
 bindsym $mod+e            exec thunar
 
 {{#user_aumgn}}
-bindsym $mod+n            exec firefox-developer-edition --new-instance -P aumgn
+bindsym $mod+n            exec rofi-firefox
 bindsym $mod+Shift+n      exec rofi-firefox
 {{/user_aumgn}}
 
 {{#host_a2w}}
+{{#user_chris}}
 bindsym $mod+n            exec firefox-developer-edition --new-instance -P ferreich
 bindsym $mod+Shift+n      exec rofi-firefox
+{{/user_chris}}
 {{/host_a2w}}
 
 {{^host_a2w}}
@@ -286,6 +286,13 @@ exec --no-startup-id pasystray
 exec --no-startup-id pulseaudio -k
 exec --no-startup-id pulseaudio -D
 {{/host_a2d}}
+
+{{#host_a2w}}
+{{#user_aumgn}}
+exec --no-startup-id blueberry-tray
+exec --no-startup-id pasystray
+{{/user_aumgn}}
+{{/host_a2w}}
 
 {{^host_a2d}}
 exec ctl lock
